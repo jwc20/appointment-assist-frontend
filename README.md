@@ -1,11 +1,16 @@
 # Doctor's appointment
 
-### As a user:
-  - 
-  -
-  -
-  -
-  -
+### As a user(the doctors' assistant) I should be able to:
+  - See all the appointments I have on the main page
+    - See the name of the patient, location of the appointment, date and start time, and the **Details** button.
+      - When clicking the "Details", I should be able to see more details for the appointment.
+        - See the Patient's Name (and Phone, Email, Address), Doctor's Name (and Phone, email), Location, Appointment Date, Appointment Reason, Appointment Duration
+    - See only 10 appointments per page and a page navigation button on the bottom right.
+  - See the "Create Appointment" button on the bottom center, beneath the appointment list   
+    - Create Appointment by clicking the button navigating to Create Appointment page.
+      - Fill in the forms with relevant info.
+      - Click Submit button to save.
+      - See the updated appointment list on the main page.
 
 
 ## TODO:
