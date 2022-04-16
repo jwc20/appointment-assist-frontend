@@ -44,6 +44,13 @@
     └── setupTests.js
 ```
 
+## Wireframe
+#### Main Page
+![Main Page](./public/wireframes/MainPage.png)
+#### Details Page
+![Details Page](./public/wireframes/AppointmentDetails.png)
+#### Create Appointment Page
+![Create Appointment Page](./public/wireframes/CreateAppointmentForm.png)
 
 ## Available Scripts
 
