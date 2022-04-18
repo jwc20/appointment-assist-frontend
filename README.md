@@ -7,6 +7,7 @@
     - When clicking the "Details", I should be able to see more details for the appointment.
       - See the Patient's Name (and Phone, Email, Address), Doctor's Name (and Phone, email), Location, Appointment Date, Appointment Reason, Appointment Duration
   - See only 10 appointments per page and a page navigation button on the bottom right.
+- See list of profiles for doctors and patients in a separate page.
 - See the "Create Appointment" button on the bottom center, beneath the appointment list
   - Create Appointment by clicking the button navigating to Create Appointment page.
     - Fill in the forms with relevant info.
