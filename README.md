@@ -14,7 +14,7 @@
 
 
 ## TODO:
-- [ ] Task 1
+- [ ] Add delete button next to details button on wireframes
 - [ ] Task 2
 - [ ] Task 3
 - [ ] Task 4
