@@ -32,7 +32,11 @@
 │   ├── logo192.png
 │   ├── logo512.png
 │   ├── manifest.json
-│   └── robots.txt
+│   ├── robots.txt
+│   └── wireframes
+│       ├── AppointmentDetails.png
+│       ├── CreateAppointmentForm.png
+│       └── MainPage.png
 └── src
     ├── App.css
     ├── App.js
@@ -42,6 +46,8 @@
     ├── logo.svg
     ├── reportWebVitals.js
     └── setupTests.js
+
+3 directories, 20 files
 ```
 
 ## Wireframe
