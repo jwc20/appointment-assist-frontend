@@ -1,19 +1,20 @@
 # Doctor's appointment
 
 ### As a user(the doctors' assistant) I should be able to:
-  - See all the appointments I have on the main page
-    - See the name of the patient, location of the appointment, date and start time, and the **Details** button.
-      - When clicking the "Details", I should be able to see more details for the appointment.
-        - See the Patient's Name (and Phone, Email, Address), Doctor's Name (and Phone, email), Location, Appointment Date, Appointment Reason, Appointment Duration
-    - See only 10 appointments per page and a page navigation button on the bottom right.
-  - See the "Create Appointment" button on the bottom center, beneath the appointment list   
-    - Create Appointment by clicking the button navigating to Create Appointment page.
-      - Fill in the forms with relevant info.
-      - Click Submit button to save.
-      - See the updated appointment list on the main page.
 
+- See all the appointments I have on the main page
+  - See the name of the patient, location of the appointment, date and start time, and the **Details** button.
+    - When clicking the "Details", I should be able to see more details for the appointment.
+      - See the Patient's Name (and Phone, Email, Address), Doctor's Name (and Phone, email), Location, Appointment Date, Appointment Reason, Appointment Duration
+  - See only 10 appointments per page and a page navigation button on the bottom right.
+- See the "Create Appointment" button on the bottom center, beneath the appointment list
+  - Create Appointment by clicking the button navigating to Create Appointment page.
+    - Fill in the forms with relevant info.
+    - Click Submit button to save.
+    - See the updated appointment list on the main page.
 
 ## TODO:
+
 - [ ] Add delete button next to details button on wireframes
 - [ ] Task 2
 - [ ] Task 3
@@ -21,6 +22,7 @@
 - [ ] Task 5
 
 ## Directory:
+
 ```
 .
 ├── README.md
@@ -51,18 +53,33 @@
 ```
 
 ## Wireframe
+
 #### Main Page
-![Main Page](./public/wireframes/MainPage.png)
-#### Details Page
-![Details Page](./public/wireframes/AppointmentDetails.png)
+
+![Main Page](./public/wireframes/main_page.png)
+
+#### Appointment Detail Page
+
+![Details Page](./public/wireframes/appointment_detail_list.png)
+
+#### Doctor Profile Page
+
+![Doctor Page](./public/wireframes/doctor_profile_list.png)
+
+#### Patient Profile Page
+
+![Patient Page](./public/wireframes/patient_profile_list.png)
+
 #### Create Appointment Page
-![Create Appointment Page](./public/wireframes/CreateAppointmentForm.png)
+
+![Create Appointment Page](./public/wireframes/create_appointment_form.png)
 
 ## Available Scripts
 
 In the project directory, you can run:
 
 ### `npm start`
+
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
