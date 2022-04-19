@@ -2,7 +2,7 @@
 
 # DEVELOPMENT BRANCH
 
-### As a user(the doctors' assistant) I should be able to:
+## As a user(the doctors' assistant) I should be able to:
 
 - See all the appointments I have on the main page
   - See the name of the patient, location of the appointment, date and start time, and the **Details** button.
@@ -16,13 +16,36 @@
     - Click Submit button to save.
     - See the updated appointment list on the main page.
 
+## Pages: 
+- App.js 
+  - Home
+  - Displays a list of appointments
+- Doctors.js 
+  - Displays a list of doctors
+- Patients.js
+  - Displays a list of patients
+- CreateAppointment.js
+  - Create appointment here with forms
+
+## Components:
+- Navbar
+- Logo
+- Description
+- AppointmentList
+  - DetailsButton
+  - DeleteAppointmentButton
+  - CreateAppointmentButton
+  - AppointmentNav
+- DoctorList
+- PatientList
+- BackButton
+
+
+
 ## TODO:
 
-- [ ] Add delete button next to details button on wireframes
-- [ ] Task 2
-- [ ] Task 3
-- [ ] Task 4
-- [ ] Task 5
+- [x] Add delete button next to details button on wireframes
+- [ ] Add Pages
 
 ## Directory:
 
