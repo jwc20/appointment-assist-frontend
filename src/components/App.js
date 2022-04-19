@@ -11,15 +11,15 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <Route path="/">
+      <Route exact path="/">
         <Home />
       </Route>
 
-      <Route path="/doctors">
+      <Route exact path="/doctors">
         <Doctors />
       </Route>
 
-      <Route path="/patients">
+      <Route exact path="/patients">
         <Patients />
       </Route>
 
