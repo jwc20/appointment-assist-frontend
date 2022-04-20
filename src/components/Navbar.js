@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
-// Style from 
+// Style from
 // https://styled-components.com/docs/basics#installation
 const NavUnlisted = styled.ul`
   display: flex;

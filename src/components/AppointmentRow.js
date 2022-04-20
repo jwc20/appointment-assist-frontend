@@ -1,9 +1,17 @@
 import AppointmentList from "./AppointmentList";
 
-function AppointmentRow({ appointment }) {
+const BASE_URL = "http://localhost:9292/appointments";
+
+function AppointmentRow({ appointment, onDeleteAppointment }) {
   function handleDetailsClick() {}
 
-  function handleDeleteClick() {}
+  function handleDeleteAppointment() {
+    fetch(BASE_URL + `/${appointment.id}`, {
+      method: "DELETE",
+    })
+      .then((r) => r.json())
+      .then((deleteAppointment) => onDeleteAppointment(deleteAppointment));
+  }
 
   return (
     <tr>
@@ -20,7 +28,11 @@ function AppointmentRow({ appointment }) {
           Details
         </button>
 
-        <button type="button" className="button" onClick={handleDeleteClick}>
+        <button
+          type="button"
+          className="button"
+          onClick={handleDeleteAppointment}
+        >
           X
         </button>
       </td>

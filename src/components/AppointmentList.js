@@ -1,11 +1,33 @@
 import Home from "../pages/Home";
 import AppointmentRow from "./AppointmentRow";
-import "../styles/barebones.css"; 
+import { useEffect, useState } from "react";
+import "../styles/barebones.css";
 
-function AppointmentList({ appointments }) {
+const BASE_URL = "http://localhost:9292/";
+
+function AppointmentList() {
+  const [appointments, setAppointments] = useState([]);
+
+  useEffect(() => {
+    fetch(BASE_URL + "appointments")
+      .then((r) => r.json())
+      .then((appointments) => setAppointments(appointments));
+  }, []);
+
   const appointmentRow = appointments.map((appointment) => (
-    <AppointmentRow key={appointment.id} appointment={appointment} />
+    <AppointmentRow
+      key={appointment.id}
+      appointment={appointment}
+      onDeleteAppointment={handleDeleteAppointment}
+    />
   ));
+
+  function handleDeleteAppointment(appointmentToDelete) {
+    const updatedAppointments = appointments.filter(
+      (appointment) => appointment.id !== appointmentToDelete.id
+    );
+    setAppointments(updatedAppointments);
+  }
 
   return (
     <div>
@@ -16,6 +38,7 @@ function AppointmentList({ appointments }) {
             <th scope="col">Patient</th>
             <th scope="col">Date</th>
             <th scope="col">Duration</th>
+            <th scope="col"></th>
           </tr>
         </thead>
         <tbody>{appointmentRow}</tbody>
