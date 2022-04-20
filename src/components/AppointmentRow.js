@@ -1,12 +1,20 @@
 import AppointmentList from "./AppointmentList";
+import AppointmentDetails from "../pages/AppointmentDetails";
 
-const BASE_URL = "http://localhost:9292/appointments";
+const BASE_URL = "http://localhost:9292";
 
-function AppointmentRow({ appointment, onDeleteAppointment }) {
-  function handleDetailsClick() {}
+function AppointmentRow({ appointment, onDeleteAppointment, onAppointmentDetails}) {
+
+  function handleAppointmentDetails() {
+    fetch(BASE_URL + `/appointments/${appointment.id}`, {
+      method: "GET",
+    })
+      .then((r) => r.json())
+      .then(appointment => onAppointmentDetails(appointment));
+  }
 
   function handleDeleteAppointment() {
-    fetch(BASE_URL + `/${appointment.id}`, {
+    fetch(BASE_URL + `/appointments/${appointment.id}`, {
       method: "DELETE",
     })
       .then((r) => r.json())
@@ -23,7 +31,7 @@ function AppointmentRow({ appointment, onDeleteAppointment }) {
         <button
           type="button"
           className="button-primary"
-          onClick={handleDetailsClick}
+          onClick={handleAppointmentDetails}
         >
           Details
         </button>

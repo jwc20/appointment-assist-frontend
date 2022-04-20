@@ -3,10 +3,12 @@ import AppointmentList from "../components/AppointmentList";
 
 function Home() {
   function handleCreateAppointmentButton() {}
+  const [isDetails] = useState(false);
 
   return (
     <div>
       <p>This is the Home Page</p>
+
       <AppointmentList />
       <div class="container">
         <div class="center">

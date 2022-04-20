@@ -1,11 +1,15 @@
 import Home from "../pages/Home";
 import AppointmentRow from "./AppointmentRow";
+import AppointmentDetails from "../pages/AppointmentDetails";
 import { useEffect, useState } from "react";
 import "../styles/barebones.css";
+import { useHistory, Route, useParams } from "react-router-dom";
 
 const BASE_URL = "http://localhost:9292/";
 
 function AppointmentList() {
+  // const { id } = useParams();
+  const history = useHistory();
   const [appointments, setAppointments] = useState([]);
 
   useEffect(() => {
@@ -18,6 +22,7 @@ function AppointmentList() {
     <AppointmentRow
       key={appointment.id}
       appointment={appointment}
+      onAppointmentDetails={handleAppointmentDetails}
       onDeleteAppointment={handleDeleteAppointment}
     />
   ));
@@ -27,6 +32,13 @@ function AppointmentList() {
       (appointment) => appointment.id !== appointmentToDelete.id
     );
     setAppointments(updatedAppointments);
+  }
+
+  function handleAppointmentDetails(appointment) {
+    history.push(`/appointments/${appointment.id}`)
+    //  <Route path="/appointments/:id">
+    //    <AppointmentDetails key={appointment.id} appointment={appointment} />
+    //  </Route>;
   }
 
   return (
