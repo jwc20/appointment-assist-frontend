@@ -1,38 +1,25 @@
 import Home from "../pages/Home";
-import EachAppointment from "./EachAppointment";
+import AppointmentRow from "./AppointmentRow";
+import "../styles/barebones.css"; 
 
 function AppointmentList({ appointments }) {
   const appointmentRow = appointments.map((appointment) => (
-    <EachAppointment key={appointment.id} appointment={appointment} />
+    <AppointmentRow key={appointment.id} appointment={appointment} />
   ));
 
   return (
     <div>
-      <table className="table">
+      <table className="u-full-width">
         <thead>
           <tr>
             <th scope="col">Doctor</th>
             <th scope="col">Patient</th>
             <th scope="col">Date</th>
-            <th scope="col">Edit</th>
+            <th scope="col">Duration</th>
           </tr>
         </thead>
         <tbody>{appointmentRow}</tbody>
       </table>
-
-      {/*
-
-      <ul>
-        {appointments.map((appointment) => (
-          <li key={appointment.id}>
-            {appointment.doctor.doctor_lastname},{" "}
-            {appointment.patient.patient_lastname},{" "}
-            {appointment.appointment_date}
-          </li>
-        ))}
-      </ul>
-
-      */}
     </div>
   );
 }

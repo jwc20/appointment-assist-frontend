@@ -1,8 +1,8 @@
 
 import { useEffect, useState } from "react";
+import DoctorList from "../components/DoctorList";
 
 const BASE_URL = "http://localhost:9292/";
-
 
 function Doctors() {
   const [doctors, setDoctors] = useState([]);
@@ -12,20 +12,11 @@ function Doctors() {
       .then(r => r.json())
       .then(doctors => setDoctors(doctors))
   }, []);
-  
 
   return (
     <div>
       <p>This is the Doctors Page</p>
-      
-      {/*
-        {doctors.map((doctor) => (
-          <DoctorList key={doctor.id} doctor={doctor} />
-        ))}
-
-      */}
-
-
+      <DoctorList doctors={doctors}/>
     </div>
   )
 

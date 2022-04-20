@@ -20,6 +20,8 @@
 - App.js 
   - Home
   - Displays a list of appointments
+- AppointmentDetails.js
+  - Displays information about a single appointment
 - Doctors.js 
   - Displays a list of doctors
 - Patients.js
