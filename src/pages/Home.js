@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-// import AppointmentList from "../components/AppointmentList"
+import AppointmentList from "../components/AppointmentList"
 
 const BASE_URL = "http://localhost:9292/";
 
@@ -14,18 +14,20 @@ function Home() {
       .then((appointments) => setAppointments(appointments));
   }, []);
 
+
   return (
     <div>
       <p>This is the Home Page</p>
 
-    {/*
+      <AppointmentList appointments={appointments}/>
+
+
+
+      {/* 
       {appointments.map((appointment) => (
         <AppointmentList key={appointment.id} appointment={appointment} />
         ))}
-    */}
-
-
-
+      */}
     </div>
   );
 }
