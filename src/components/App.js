@@ -4,10 +4,8 @@ import Home from "../pages/Home";
 import Doctors from "../pages/Doctors";
 import Patients from "../pages/Patients";
 import AppointmentDetails from "../pages/AppointmentDetails";
+import CreateAppointment from '../pages/CreateAppointment';
 import "../styles/barebones.css";
-
-// import CreateAppointment from '../pages/CreateAppointment';
-// import AppointmentDetails from '../pages/AppointmentDetails';
 
 function App() {
   return (
@@ -26,18 +24,9 @@ function App() {
         <Route path="/appointments/:id">
           <AppointmentDetails />
         </Route>
-        ;
-        {/**********************************
-
-      <Route path="/create-appointment">
-        <CreateAppointment />
-      </Route>
-
-      <Route path="/appointment-details">
-        <AppointmentDetails />
-      </Route>
-
-      *********************************/}
+        <Route path="/create-appointment">
+          <CreateAppointment />
+        </Route>
       </Switch>
     </div>
   );

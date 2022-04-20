@@ -1,9 +1,14 @@
 import { useEffect, useState } from "react";
 import AppointmentList from "../components/AppointmentList";
+import { useHistory } from "react-router-dom";
 
 function Home() {
-  function handleCreateAppointmentButton() {}
   const [isDetails] = useState(false);
+  const history = useHistory();
+
+  function handleCreateAppointmentButton() {
+    history.push("/create-appointment");
+  }
 
   return (
     <div>
