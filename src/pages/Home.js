@@ -12,10 +12,23 @@ function Home() {
       .then((appointments) => setAppointments(appointments));
   }, []);
 
+  function handleCreateAppointmentButton() {}
+
   return (
     <div>
       <p>This is the Home Page</p>
       <AppointmentList appointments={appointments} />
+      <div class="container">
+        <div class="center">
+          <button
+            type="button"
+            className="button-primary"
+            onClick={handleCreateAppointmentButton}
+          >
+            Create an Appointment
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

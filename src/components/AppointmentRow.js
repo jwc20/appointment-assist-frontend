@@ -12,12 +12,15 @@ function AppointmentRow({ appointment }) {
       <td>{appointment.appointment_date}</td>
       <td>{appointment.appointment_duration} minutes</td>
       <td>
-        <button type="button" className="btn btn-primary" onClick={handleDetailsClick}>
+        <button
+          type="button"
+          className="button-primary"
+          onClick={handleDetailsClick}
+        >
           Details
         </button>
-      </td>
-      <td>
-        <button type="button" className="btn btn-primary" onClick={handleDeleteClick}>
+
+        <button type="button" className="button" onClick={handleDeleteClick}>
           X
         </button>
       </td>

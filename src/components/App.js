@@ -1,10 +1,12 @@
 import NavBar from "./NavBar";
+import { Route } from "react-router-dom";
 import Home from "../pages/Home";
 import Doctors from "../pages/Doctors";
 import Patients from "../pages/Patients";
-// import CreateAppointment from '../pages/CreateAppointment'
+import "../styles/barebones.css";
 
-import { Route } from "react-router-dom";
+// import CreateAppointment from '../pages/CreateAppointment';
+// import AppointmentDetails from '../pages/AppointmentDetails';
 
 function App() {
   return (
@@ -26,6 +28,10 @@ function App() {
 
       <Route path="/create-appointment">
         <CreateAppointment />
+      </Route>
+
+      <Route path="/appointment-details">
+        <AppointmentDetails />
       </Route>
 
       *********************************/}

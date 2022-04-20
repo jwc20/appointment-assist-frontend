@@ -3,7 +3,7 @@ import DoctorRow from "./DoctorRow";
 
 function DoctorList({ doctors }) {
   const doctorRow = doctors.map((doctor) => (
-    <DoctorRow key={doctor.doctor_id} doctor={doctor} />
+    <DoctorRow key={doctor.id} doctor={doctor} />
   ));
 
   return (

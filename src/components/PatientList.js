@@ -6,7 +6,7 @@ import PatientRow from "./PatientRow";
 function PatientList({ patients }) {
 
   const patientRow = patients.map((patient) => (
-    <PatientRow key={patient.patient_id} patient={patient} />
+    <PatientRow key={patient.id} patient={patient} />
   ))
 
   return (
