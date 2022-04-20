@@ -2,6 +2,8 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
+// Style from 
+// https://styled-components.com/docs/basics#installation
 const NavUnlisted = styled.ul`
   display: flex;
   a {
@@ -28,7 +30,7 @@ const links = [
   { name: "Patients", path: "/patients" },
 ];
 
-function Navbar() {
+function NavBar() {
   return (
     <NavUnlisted>
       {links.map((link, index) => (
@@ -40,4 +42,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default NavBar;
