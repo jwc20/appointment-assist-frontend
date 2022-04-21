@@ -61,18 +61,40 @@
 │   └── wireframes
 │       ├── AppointmentDetails.png
 │       ├── CreateAppointmentForm.png
-│       └── MainPage.png
+│       ├── MainPage.png
+│       ├── appointment_detail_list.png
+│       ├── create_appointment_form.png
+│       ├── doctor_profile_list.png
+│       ├── main_page.png
+│       └── patient_profile_list.png
 └── src
-    ├── App.css
-    ├── App.js
-    ├── App.test.js
+    ├── components
+    │   ├── App.js
+    │   ├── AppointmentList.js
+    │   ├── AppointmentRow.js
+    │   ├── DoctorList.js
+    │   ├── DoctorRow.js
+    │   ├── Logo.js
+    │   ├── NavBar.js
+    │   ├── PatientList.js
+    │   ├── PatientRow.js
+    │   ├── Routes.js
+    │   └── logo.png
     ├── index.css
     ├── index.js
-    ├── logo.svg
-    ├── reportWebVitals.js
-    └── setupTests.js
+    ├── pages
+    │   ├── AppointmentDetails.js
+    │   ├── CreateAppointment.js
+    │   ├── Doctors.js
+    │   ├── Home.js
+    │   └── Patients.js
+    └── styles
+        ├── barebones.css
+        ├── normalize.css
+        └── skeleton-legacy.css
 
-3 directories, 20 files
+6 directories, 38 files
+
 ```
 
 ## Wireframe
@@ -100,7 +122,9 @@
 ## Available Scripts
 
 In the project directory, you can run:
+
 ### `npm install`
+
 ### `npm start`
 
 Runs the app in the development mode.\
