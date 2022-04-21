@@ -43,7 +43,7 @@ function AppointmentDetails() {
       });
     fetch(BASE_URL + "/patients")
       .then((r) => r.json())
-      .then(setPatients);
+      .then((patients) => setPatients(patients));
 
     fetch(BASE_URL + `/appointments/${id}`)
       .then((r) => r.json())
@@ -53,16 +53,14 @@ function AppointmentDetails() {
       });
   }, []);
 
-
-  // patients.forEach((eachPatients) => {
-  //   for (const key in eachPatients) {
-  //     // console.log(doctor[key]);
-  //     if (appointment.appointmentPatient === eachPatients[key]) {
-  //       appointmentPatient = eachPatients;
-  //       console.log(appointmentPatient);
-  //     }
-  //   }
-  // });
+  patients.forEach((eachPatient) => {
+    for (const key in eachPatient) {
+      if (appointment.appointment_patient === eachPatient[key]) {
+        console.log(eachPatient);
+        appointmentPatient = eachPatient;
+      }
+    }
+  });
 
   doctors.forEach((eachDoctor) => {
     for (const key in eachDoctor) {
@@ -71,6 +69,7 @@ function AppointmentDetails() {
         //  console.log('YAYA')
         //  console.log(doctor)
         console.log(eachDoctor);
+        appointmentDoctor = eachDoctor;
       }
     }
   });
@@ -113,7 +112,83 @@ function AppointmentDetails() {
           </td>
         </tr>
 
-        {/**************************************************************************************************/}
+        <tr>
+          <td className="left-column">Doctor's name</td>
+          <td>
+            {appointmentDoctor.doctor_lastname === null
+              ? ""
+              : appointmentDoctor.doctor_lastname}
+            ,{" "}
+            {appointmentDoctor.doctor_firstname === null
+              ? ""
+              : appointmentDoctor.doctor_firstname}
+          </td>
+        </tr>
+
+        <tr>
+          <td className="left-column">Doctor's email</td>
+          <td>
+            {appointmentDoctor.doctor_email === null
+              ? ""
+              : appointmentDoctor.doctor_email}
+          </td>
+        </tr>
+        <tr>
+          <td className="left-column">Doctor's phone</td>
+          <td>
+            {appointmentDoctor.doctor_phone === null
+              ? ""
+              : appointmentDoctor.doctor_phone}
+          </td>
+        </tr>
+        <tr>
+          <td className="left-column">Patient's name</td>
+          <td>
+            {appointmentPatient.patient_lastname === null
+              ? ""
+              : appointmentPatient.patient_lastname}
+            ,{" "}
+            {appointmentPatient.patient_firstname === null
+              ? ""
+              : appointmentPatient.patient_firstname}
+          </td>
+        </tr>
+        <tr>
+          <td className="left-column">Patient's phone</td>
+          <td>
+            {appointmentPatient.patient_phone === null
+              ? ""
+              : appointmentPatient.patient_phone}
+          </td>
+        </tr>
+        <tr>
+          <td className="left-column">Patient's email</td>
+          <td>
+            {appointmentPatient.patient_email === null
+              ? ""
+              : appointmentPatient.patient_email}
+          </td>
+        </tr>
+
+        <tr>
+          <td className="left-column">Patient's address</td>
+          <td>
+            {appointmentPatient.patient_address === null
+              ? ""
+              : appointmentPatient.patient_address}
+            {", "}
+            {appointmentPatient.patient_city === null
+              ? ""
+              : appointmentPatient.patient_city}
+            {", "}
+            {appointmentPatient.patient_state === null
+              ? ""
+              : appointmentPatient.patient_state}
+          </td>
+        </tr>
+        {/*******************************
+
+
 
         <tr>
           <td className="left-column">Doctor's name</td>
@@ -172,6 +247,8 @@ function AppointmentDetails() {
               : appointment.patient.patient_email}
           </td>
         </tr>
+
+        *******************************************************************/}
 
         {/**************************************************************************************************/}
       </AppTable>
