@@ -53,7 +53,7 @@ function CreateAppointment({ onAddAppointment }) {
   }
 
   function handleAppointmentTypeChange(e) {
-    setAppointmentType(e.target.value)
+    setAppointmentType(e.target.value);
   }
 
 
