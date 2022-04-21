@@ -516,9 +516,10 @@ form {
 /* Utilities
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .u-full-width {
+  margin: auto;
   padding-left: 50px;
   padding-right: 50px;
-  width: 100%;
+  width: 70%;
   box-sizing: border-box;
 }
 .u-max-full-width {
@@ -593,4 +594,9 @@ there.
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+}
+
+.logo-container {
+  margin: auto;
+  width: 50%;
 }

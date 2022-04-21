@@ -1,7 +1,29 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import styled from "styled-components";
 
 const BASE_URL = "http://localhost:9292";
+
+const AppTable = styled.table`
+  margin: auto;
+
+  border-collapse: collapse;
+
+  td,
+  th {
+    border: 1px solid #dddddd;
+    padding: 8px;
+  }
+
+  td.left-column {
+    text-align: right;
+    width: 30%;
+  }
+
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+`;
 
 function AppointmentDetails() {
   const { id } = useParams();
@@ -17,21 +39,57 @@ function AppointmentDetails() {
 
   return (
     <div>
-      <h2>{appointment.appointment_date}</h2>
-      <h2>{appointment.appointment_duration} minutes</h2>
-      <h2>{appointment.appointment_type}</h2>
-      <h2>{appointment.appointment_reason}</h2>
-      <h3>
-        {appointment.doctor.doctor_lastname},{" "}
-        {appointment.doctor.doctor_firstname}
-      </h3>
-      <h2>{appointment.doctor.doctor_email}</h2>
-      <h2>
-        {appointment.patient.patient_lastname},{" "}
-        {appointment.patient.patient_firstname}
-      </h2>
-      <h2>{appointment.patient.patient_phone}</h2>
-      <h2>{appointment.patient.patient_email}</h2>
+      <AppTable>
+        <tr>
+          <td className="left-column">Date</td>
+          <td className="right-column">{appointment.appointment_date}</td>
+        </tr>
+        <tr>
+          <td className="left-column">Duration</td>
+          <td className="right-column">
+            {appointment.appointment_duration} minutes
+          </td>
+        </tr>
+        <tr>
+          <td className="left-column">Type</td>
+          <td className="right-column">{appointment.appointment_type}</td>
+        </tr>
+        <tr>
+          <td className="left-column">Reason</td>
+          <td>{appointment.appointment_reason}</td>
+        </tr>
+        <tr>
+          <td className="left-column">Doctor's name</td>
+          <td>
+            {appointment.doctor.doctor_lastname},{" "}
+            {appointment.doctor.doctor_firstname}
+          </td>
+        </tr>
+
+        <tr>
+          <td className="left-column">Doctor's email</td>
+          <td>{appointment.doctor.doctor_email}</td>
+        </tr>
+        <tr>
+          <td className="left-column">Doctor's phone</td>
+          <td>{appointment.doctor.doctor_phone}</td>
+        </tr>
+        <tr>
+          <td className="left-column">Patient's name</td>
+          <td>
+            {appointment.patient.patient_lastname},{" "}
+            {appointment.patient.patient_firstname}
+          </td>
+        </tr>
+        <tr>
+          <td className="left-column">Patient's phone</td>
+          <td>{appointment.patient.patient_phone}</td>
+        </tr>
+        <tr>
+          <td className="left-column">Patient's email</td>
+          <td>{appointment.patient.patient_email}</td>
+        </tr>
+      </AppTable>
     </div>
   );
 }

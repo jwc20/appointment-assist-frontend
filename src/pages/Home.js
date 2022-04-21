@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import AppointmentList from "../components/AppointmentList";
+import Logo from "../components/Logo";
 import { useHistory } from "react-router-dom";
 
 function Home() {
@@ -13,7 +14,9 @@ function Home() {
   return (
     <div>
       <p>This is the Home Page</p>
-
+      {/*
+        <Logo />
+      */}
       <AppointmentList />
       <div class="container">
         <div class="center">

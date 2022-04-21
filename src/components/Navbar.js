@@ -6,15 +6,18 @@ import styled from "styled-components";
 // https://styled-components.com/docs/basics#installation
 const NavUnlisted = styled.ul`
   display: flex;
+  background-color: rgb(37, 150, 190);
   a {
     text-decoration: none;
+    padding-left: 50px
   }
   li {
-    color: red;
+    color: white;
     margin: 0 0.8rem;
-    font-size: 1.3rem;
+    font-size: 2.3rem;
     position: relative;
     list-style: none;
+
   }
 
   .current {
