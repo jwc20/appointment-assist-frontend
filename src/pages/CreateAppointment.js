@@ -5,18 +5,23 @@ const BASE_URL = "http://localhost:9292";
 function CreateAppointment() {
   const [doctors, setDoctors] = useState([]);
   const [patients, setPatients] = useState([]);
+
   const [newAppointment, setNewAppointment] = useState([]);
   const [appointment_date, setAppointmentDate] = useState("");
   const [appointment_duration, setAppointmentDuration] = useState(0);
   const [appointment_type, setAppointmentType] = useState("");
   const [appointment_reason, setAppointmentReason] = useState("");
 
-  const [doctor_lastname, setDoctorLastName] = useState("");
+  const [appointment_doctor, setAppointmentDoctor] = useState("");
+  const [appointment_patient, setAppointmentPatient] = useState("");
+
   // const [doctorFirstName, setDoctorFirstName] = useState("");
   // const [doctorPhone, setDoctorPhone] = useState("");
   // const [doctorEmail, setDoctorEmail] = useState("");
 
-  // const [patientLastName, setPatientLastName] = useState("");
+  // const [doctor_id, setDoctorID] = useState(0);
+  // const [patient_id, setPatientID] = useState(0);
+
   // const [patientFirstName, setPatientFirstName] = useState("");
   // const [patientPhone, setPatientPhone] = useState("");
   // const [patientEmail, setPatientEmail] = useState("");
@@ -24,17 +29,11 @@ function CreateAppointment() {
   // const [patientCity, setPatientCity] = useState("");
   // const [patientState, setPatientState] = useState("");
 
-  useEffect(() => {
-    fetch(BASE_URL + "/doctors")
-      .then((r) => r.json())
-      .then(setDoctors);
-    fetch(BASE_URL + "/patients")
-      .then((r) => r.json())
-      .then(setPatients);
-  }, []);
+
 
   function handleSubmit(e) {
     e.preventDefault();
+
     fetch(BASE_URL + "/appointments", {
       method: "POST",
       headers: {
@@ -45,7 +44,8 @@ function CreateAppointment() {
         appointment_date: appointment_date,
         appointment_duration: appointment_duration,
         appointment_reason: appointment_reason,
-        doctor_lastname: doctor_lastname,
+        appointment_doctor: appointment_doctor,
+        appointment_patient: appointment_patient,
         // doctorFirstName: doctorFirstName,
         // doctorPhone: doctorPhone,
         // doctorEmail: doctorEmail,
@@ -60,10 +60,13 @@ function CreateAppointment() {
         // patient_id: patient_id,
       }),
     })
-      // https://stackoverflow.com/questions/50048785/unexpected-end-of-json-input-error
-      // .then((r) => r.json())
+      .then((r) => r.json())
       // .then((newAppointment) => onAddAppointment(newAppointment));
-      .then((newAppointment) => setNewAppointment(newAppointment));
+
+      .then((newAppointment) => {
+        console.log(newAppointment);
+        setNewAppointment(newAppointment);
+      });
     console.log("New appointment made.");
   }
 
@@ -83,9 +86,20 @@ function CreateAppointment() {
     setAppointmentReason(e.target.value);
   }
 
-  function handleDoctorLastNameChange(e) {
-    setDoctorLastName(e.target.value);
+  function handleAppointmentDoctorChange(e) {
+    setAppointmentDoctor(e.target.value);
   }
+
+  function handleAppointmentPatientChange(e) {
+    setAppointmentPatient(e.target.value);
+  }
+  // function handleDoctorIDChange(e) {
+  //   setDoctorID(e.target.value);
+  // }
+
+  // function handlePatientIDChange(e) {
+  //   setPatientID(e.target.value);
+  // }
 
   return (
     <div>
@@ -117,11 +131,16 @@ function CreateAppointment() {
         />
         <input
           type="text"
-          onChange={handleDoctorLastNameChange}
-          value={doctor_lastname}
+          onChange={handleAppointmentDoctorChange}
+          value={appointment_doctor}
           placeholder="Doctor's Lastname"
         />
-
+        <input
+          type="text"
+          onChange={handleAppointmentPatientChange}
+          value={appointment_patient}
+          placeholder="Patient's Lastname"
+        />
         <button type="submit">Submit</button>
       </form>
     </div>
