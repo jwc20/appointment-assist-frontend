@@ -16,13 +16,14 @@
     - Click Submit button to save.
     - See the updated appointment list on the main page.
 
-## Pages: 
-- App.js 
+## Pages:
+
+- App.js
   - Home
   - Displays a list of appointments
 - AppointmentDetails.js
   - Displays information about a single appointment
-- Doctors.js 
+- Doctors.js
   - Displays a list of doctors
 - Patients.js
   - Displays a list of patients
@@ -30,6 +31,7 @@
   - Create appointment here with forms
 
 ## Components:
+
 - Navbar
 - Logo
 - Description
@@ -41,13 +43,6 @@
 - DoctorList
 - PatientList
 - BackButton
-
-
-
-## TODO:
-
-- [x] Add delete button next to details button on wireframes
-- [ ] Add Pages
 
 ## Directory:
 
@@ -105,7 +100,7 @@
 ## Available Scripts
 
 In the project directory, you can run:
-
+### `npm install`
 ### `npm start`
 
 Runs the app in the development mode.\
