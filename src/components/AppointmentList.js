@@ -42,10 +42,12 @@ function AppointmentList() {
       <table className="u-full-width">
         <thead>
           <tr>
-            <th scope="col">Doctor</th>
-            <th scope="col">Patient</th>
+            <th scope="col">Type</th>
             <th scope="col">Date</th>
             <th scope="col">Duration</th>
+            <th scope="col">Doctor</th>
+            <th scope="col">Patient</th>
+            <th scope="col"></th>
             <th scope="col"></th>
           </tr>
         </thead>

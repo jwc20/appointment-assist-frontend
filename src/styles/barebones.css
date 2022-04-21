@@ -304,7 +304,7 @@ input[type="reset"],
 input[type="button"] {
   display: inline-block;
   height: 38px;
-  padding: 0 30px;
+  padding: 0 15px;
   color: var(--text-color-softer);
   text-align: center;
   font-size: 11px;
@@ -319,6 +319,9 @@ input[type="button"] {
   border: 1px solid var(--border-color);
   cursor: pointer;
   box-sizing: border-box;
+}
+.button.button-x {
+  width: 10%;
 }
 .button:hover,
 button:hover,

@@ -44,12 +44,16 @@ function AppointmentRow({
         minutes
       </td>
 
-      {/*
-
-      <td>{appointment.doctor.doctor_lastname === null ? "" : appointment.doctor.doctor_lastname}</td>
-      <td>{appointment.patient.patient_lastname === null ? "" : appointment.patient.patient_lastname}</td>
-
-      */}
+      <td>
+        {appointment.appointment_doctor === null
+          ? ""
+          : appointment.appointment_doctor}
+      </td>
+      <td>
+        {appointment.appointment_patient === null
+          ? ""
+          : appointment.appointment_patient}
+      </td>
 
       <td>
         <button
@@ -59,10 +63,11 @@ function AppointmentRow({
         >
           Details
         </button>
-
+      </td>
+      <td>
         <button
           type="button"
-          className="button"
+          className="button-x"
           onClick={handleDeleteAppointment}
         >
           X
