@@ -1,15 +1,17 @@
 import { useEffect, useState } from "react";
 
-const BASE_URL = "http://localhost:9292/";
+const BASE_URL = "http://localhost:9292";
 
-function CreateAppointment({ onAddAppointment }) {
+function CreateAppointment() {
+  const [doctors, setDoctors] = useState([]);
+  const [patients, setPatients] = useState([]);
   const [newAppointment, setNewAppointment] = useState([]);
   const [appointment_date, setAppointmentDate] = useState("");
   const [appointment_duration, setAppointmentDuration] = useState(0);
   const [appointment_type, setAppointmentType] = useState("");
   const [appointment_reason, setAppointmentReason] = useState("");
 
-  // const [doctorLastName, setDoctorLastName] = useState("");
+  const [doctor_lastname, setDoctorLastName] = useState("");
   // const [doctorFirstName, setDoctorFirstName] = useState("");
   // const [doctorPhone, setDoctorPhone] = useState("");
   // const [doctorEmail, setDoctorEmail] = useState("");
@@ -22,9 +24,18 @@ function CreateAppointment({ onAddAppointment }) {
   // const [patientCity, setPatientCity] = useState("");
   // const [patientState, setPatientState] = useState("");
 
+  useEffect(() => {
+    fetch(BASE_URL + "/doctors")
+      .then((r) => r.json())
+      .then(setDoctors);
+    fetch(BASE_URL + "/patients")
+      .then((r) => r.json())
+      .then(setPatients);
+  }, []);
+
   function handleSubmit(e) {
     e.preventDefault();
-    fetch(BASE_URL + "appointments", {
+    fetch(BASE_URL + "/appointments", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -34,7 +45,7 @@ function CreateAppointment({ onAddAppointment }) {
         appointment_date: appointment_date,
         appointment_duration: appointment_duration,
         appointment_reason: appointment_reason,
-        // doctorLastName: doctorLastName,
+        doctor_lastname: doctor_lastname,
         // doctorFirstName: doctorFirstName,
         // doctorPhone: doctorPhone,
         // doctorEmail: doctorEmail,
@@ -72,6 +83,10 @@ function CreateAppointment({ onAddAppointment }) {
     setAppointmentReason(e.target.value);
   }
 
+  function handleDoctorLastNameChange(e) {
+    setDoctorLastName(e.target.value);
+  }
+
   return (
     <div>
       <p>Hello </p>
@@ -99,6 +114,12 @@ function CreateAppointment({ onAddAppointment }) {
           onChange={handleAppointmentReasonChange}
           value={appointment_reason}
           placeholder="reason"
+        />
+        <input
+          type="text"
+          onChange={handleDoctorLastNameChange}
+          value={doctor_lastname}
+          placeholder="Doctor's Lastname"
         />
 
         <button type="submit">Submit</button>

@@ -18,8 +18,8 @@ function Home() {
         <Logo />
       */}
       <AppointmentList />
-      <div class="container">
-        <div class="center">
+      <div className="container">
+        <div className="center">
           <button
             type="button"
             className="button-primary"

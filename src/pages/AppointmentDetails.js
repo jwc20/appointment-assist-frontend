@@ -42,53 +42,73 @@ function AppointmentDetails() {
       <AppTable>
         <tr>
           <td className="left-column">Date</td>
-          <td className="right-column">{appointment.appointment_date}</td>
+          <td className="right-column">
+            {appointment.appointment_date === null
+              ? ""
+              : appointment.appointment_date}
+          </td>
         </tr>
         <tr>
           <td className="left-column">Duration</td>
           <td className="right-column">
-            {appointment.appointment_duration} minutes
+            {appointment.appointment_duration === null
+              ? ""
+              : appointment.appointment_duration}{" "}
+            minutes
           </td>
         </tr>
         <tr>
           <td className="left-column">Type</td>
-          <td className="right-column">{appointment.appointment_type}</td>
+          <td className="right-column">
+            {appointment.appointment_type === null
+              ? ""
+              : appointment.appointment_type}
+          </td>
         </tr>
         <tr>
           <td className="left-column">Reason</td>
-          <td>{appointment.appointment_reason}</td>
+          <td>
+            {appointment.appointment_reason === null
+              ? ""
+              : appointment.appointment_reason}
+          </td>
         </tr>
+
+        {/*****************
+
+
         <tr>
           <td className="left-column">Doctor's name</td>
           <td>
-            {appointment.doctor.doctor_lastname},{" "}
-            {appointment.doctor.doctor_firstname}
+            {appointment.doctor.doctor_lastname === null ? "" : appointment.doctor.doctor_lastname},{" "}
+            {appointment.doctor.doctor_firstname === null ? "" : appointment.doctor.doctor_firstname}
           </td>
         </tr>
 
         <tr>
           <td className="left-column">Doctor's email</td>
-          <td>{appointment.doctor.doctor_email}</td>
+          <td>{appointment.doctor.doctor_email === null ? "" : appointment.doctor.doctor_email}</td>
         </tr>
         <tr>
           <td className="left-column">Doctor's phone</td>
-          <td>{appointment.doctor.doctor_phone}</td>
+          <td>{appointment.doctor.doctor_phone === null ? "" : appointment.doctor.doctor_phone}</td>
         </tr>
         <tr>
           <td className="left-column">Patient's name</td>
           <td>
-            {appointment.patient.patient_lastname},{" "}
-            {appointment.patient.patient_firstname}
+            {appointment.patient.patient_lastname === null ? "" : appointment.patient.patient_lastname},{" "}
+            {appointment.patient.patient_firstname === null ? "" : appointment.patient.patient_firstname}
           </td>
         </tr>
         <tr>
           <td className="left-column">Patient's phone</td>
-          <td>{appointment.patient.patient_phone}</td>
+          <td>{appointment.patient.patient_phone === null ? "" : appointment.patient.patient_phone}</td>
         </tr>
         <tr>
           <td className="left-column">Patient's email</td>
-          <td>{appointment.patient.patient_email}</td>
+          <td>{appointment.patient.patient_email === null ? "" : appointment.patient.patient_email}</td>
         </tr>
+          *****************/}
       </AppTable>
     </div>
   );
