@@ -7,6 +7,7 @@ import AppointmentDetails from "../pages/AppointmentDetails";
 import CreateAppointment from "../pages/CreateAppointment";
 import UpdateAppointment from "../pages/UpdateAppointment";
 import UpdateDoctor from "../pages/UpdateDoctor";
+import CreateDoctor from "../pages/CreateDoctor";
 import "../styles/barebones.css";
 
 function App() {
@@ -34,6 +35,10 @@ function App() {
         </Route>
         <Route path="/create-appointment">
           <CreateAppointment />
+        </Route>
+
+        <Route path="/create-doctor">
+          <CreateDoctor />
         </Route>
       </Switch>
     </div>

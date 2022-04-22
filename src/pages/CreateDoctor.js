@@ -1,6 +1,4 @@
-import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-
+import { useState } from "react";
 import styled from "styled-components";
 
 const BASE_URL = "http://localhost:9292";
@@ -14,8 +12,7 @@ const FormDiv = styled.div`
   align-items: center;
 `;
 
-function UpdateDoctor() {
-  const { id } = useParams();
+function CreateDoctor() {
   const [updatedDoctor, setUpdatedDactor] = useState([]);
   const [doctor_firstname, setDoctorFirstName] = useState("");
   const [doctor_lastname, setDoctorLastName] = useState("");
@@ -24,13 +21,12 @@ function UpdateDoctor() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch(BASE_URL + `/doctors/${id}`, {
-      method: "PATCH",
+    fetch(BASE_URL + "/doctors", {
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        id: id,
         doctor_firstname: doctor_firstname,
         doctor_lastname: doctor_lastname,
         doctor_phone: doctor_phone,
@@ -38,13 +34,11 @@ function UpdateDoctor() {
       }),
     })
       .then((r) => r.json())
-      // .then(setUpdatedDactor);
-      .then (updateDoctor => {
-        console.log(updatedDoctor)
-      })
-      
-      
-    console.log("Updated doctor");
+      .then(setUpdatedDactor);
+    // .then((updateDoctor) => {
+    //   console.log(updatedDoctor);
+    // });
+    console.log("Created a doctor");
   }
 
   function handleDoctorFirstNameChange(e) {
@@ -65,8 +59,7 @@ function UpdateDoctor() {
 
   return (
     <div>
-      <h3 className="pad-left">Update A Doctor</h3>
-
+      <h3 className="pad-left">Create A Doctor</h3>
       <FormDiv>
         <form onSubmit={handleSubmit}>
           <div className="grid-container halves">
@@ -78,7 +71,6 @@ function UpdateDoctor() {
                 onChange={handleDoctorFirstNameChange}
                 value={doctor_firstname}
                 placeholder="First Name"
-                required
               />
             </div>
 
@@ -90,11 +82,8 @@ function UpdateDoctor() {
                 onChange={handleDoctorLastNameChange}
                 value={doctor_lastname}
                 placeholder="Last Name"
-                required
               />
             </div>
-
-            
           </div>
 
           <div className="grid-container halves">
@@ -106,7 +95,6 @@ function UpdateDoctor() {
                 onChange={handleDoctorPhoneChange}
                 value={doctor_phone}
                 placeholder="xxx-xxx-xxxx"
-                required
               />
             </div>
 
@@ -118,7 +106,6 @@ function UpdateDoctor() {
                 onChange={handleDoctorEmailChange}
                 value={doctor_email}
                 placeholder="Email"
-                required
               />
             </div>
           </div>
@@ -133,4 +120,4 @@ function UpdateDoctor() {
   );
 }
 
-export default UpdateDoctor;
+export default CreateDoctor;

@@ -13,10 +13,8 @@ function Home() {
 
   return (
     <div className="list-container">
-      <p>This is the Home Page</p>
-      {/*
-        <Logo />
-      */}
+      <h3>Appointments</h3>
+
       <AppointmentList />
       <div className="container">
         <div className="center">

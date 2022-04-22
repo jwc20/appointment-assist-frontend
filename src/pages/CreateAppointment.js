@@ -75,91 +75,98 @@ function CreateAppointment() {
   }
 
   return (
-    <FormDiv>
-      <form onSubmit={handleSubmit}>
-        <div className="grid-container halves">
-          <div>
-            <label for="appdoc">Doctor's Name</label>
-            <input
-              id="appdoc"
+    <div>
+      <h3 className="pad-left">Create An Apointment</h3>
+      <FormDiv>
+        <form onSubmit={handleSubmit}>
+          <div className="grid-container halves">
+            <div>
+              <label for="appdoc">Doctor's Name</label>
+              <input
+                id="appdoc"
+                type="text"
+                onChange={handleAppointmentDoctorChange}
+                value={appointment_doctor}
+                placeholder="Doctor's Lastname"
+                required
+              />
+            </div>
+
+            <div>
+              <label for="apppat">Patient's Name</label>
+              <input
+                id="apppat"
+                type="text"
+                onChange={handleAppointmentPatientChange}
+                value={appointment_patient}
+                placeholder="Patient's Lastname"
+                required
+              />
+            </div>
+          </div>
+
+          <div className="grid-container thirds">
+            <div>
+              <label for="appdate">Appointment Date</label>
+              <input
+                id="appdate"
+                type="date"
+                onChange={handleAppointmentDateChange}
+                value={appointment_date}
+                placeholder="date"
+                required
+              />
+            </div>
+
+            <div>
+              <label for="appdur">Appointment Duration</label>
+              <input
+                id="appdur"
+                type="number"
+                onChange={handleAppointmentDurationChange}
+                value={appointment_duration}
+                placeholder="duration"
+              />
+            </div>
+
+            <div>
+              <label for="apptype">Appointment Type</label>
+              <select
+                id="apptype"
+                type="text"
+                onChange={handleAppointmentTypeChange}
+                value={appointment_type}
+                placeholder="type"
+                required
+              >
+                <option value="New-Patient">New Patient Evaluation</option>
+                <option value="Walk-in">Walk-in</option>
+                <option value="Follow-up">Routine Follow-Up</option>
+                <option value="Urgent">Urgent Visit</option>
+              </select>
+            </div>
+          </div>
+
+          <div className="grid-container full">
+            <label for="appreason">Appointment Reason</label>
+            <textarea
+              id="appreason"
+              className="u-full-width"
               type="text"
-              onChange={handleAppointmentDoctorChange}
-              value={appointment_doctor}
-              placeholder="Doctor's Lastname"
-            />
+              onChange={handleAppointmentReasonChange}
+              value={appointment_reason}
+              placeholder="reason"
+            ></textarea>
           </div>
 
-          <div>
-            <label for="apppat">Patient's Name</label>
-            <input
-              id="apppat"
-              type="text"
-              onChange={handleAppointmentPatientChange}
-              value={appointment_patient}
-              placeholder="Patient's Lastname"
-            />
+          <div className="grid-container full">
+            <button type="submit" className="button-primary">
+              Submit
+            </button>
           </div>
-        </div>
-
-        <div className="grid-container thirds">
-          <div>
-            <label for="appdate">Appointment Date</label>
-            <input
-              id="appdate"
-              type="date"
-              onChange={handleAppointmentDateChange}
-              value={appointment_date}
-              placeholder="date"
-            />
-          </div>
-
-          <div>
-            <label for="appdur">Appointment Duration</label>
-            <input
-              id="appdur"
-              type="number"
-              onChange={handleAppointmentDurationChange}
-              value={appointment_duration}
-              placeholder="duration"
-            />
-          </div>
-
-          <div>
-            <label for="apptype">Appointment Type</label>
-            <select
-              id="apptype"
-              type="text"
-              onChange={handleAppointmentTypeChange}
-              value={appointment_type}
-              placeholder="type"
-            >
-              <option value="New-Patient">New Patient Evaluation</option>
-              <option value="Walk-in">Walk-in</option>
-              <option value="Follow-up">Routine Follow-Up</option>
-              <option value="Urgent">Urgent Visit</option>
-            </select>
-          </div>
-        </div>
-
-        <div className="grid-container full">
-          <label for="appreason">Appointment Reason</label>
-          <textarea
-            id="appreason"
-            className="u-full-width"
-            type="text"
-            onChange={handleAppointmentReasonChange}
-            value={appointment_reason}
-            placeholder="reason"
-          ></textarea>
-        </div>
-
-        <div className="grid-container full">
-          <button type="submit" className="button-primary">
-            Submit
-          </button>
-        </div>
-      </form>
-    </FormDiv>
+        </form>
+      </FormDiv>
+    </div>
   );
 }
 

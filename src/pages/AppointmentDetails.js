@@ -36,7 +36,8 @@ function AppointmentDetails({ onUpdateAppointment }) {
   const [doctors, setDoctors] = useState([]);
   const [patient, setPatient] = useState("");
   const [patients, setPatients] = useState([]);
-  const [toUpdateDoctor, setToUpdateDoctor] = useState("");
+  const [toBeUpdatedDoctor, setToBeUpdatedDoctor] = useState("");
+  const [updatedDoctor, setUpdatedDoctor] = useState("");
 
   useEffect(() => {
     fetch(BASE_URL + "/doctors")
@@ -52,6 +53,7 @@ function AppointmentDetails({ onUpdateAppointment }) {
       .then((r) => r.json())
       // .then((appointment) => setAppointment(appointment));
       .then((appointment) => {
+        console.log(appointment);
         setAppointment(appointment);
       });
   }, []);
@@ -73,7 +75,6 @@ function AppointmentDetails({ onUpdateAppointment }) {
       }
     }
   });
-  if (!appointment) return <h2>Loading appointment data...</h2>;
 
   function handleUpdateAppointment(e) {
     history.push(`/appointment/update/${appointment.id}`);
@@ -82,12 +83,35 @@ function AppointmentDetails({ onUpdateAppointment }) {
   function handleUpdateDoctor(e) {
     fetch(BASE_URL + `/doctors/search/${appointmentDoctor.doctor_lastname}`)
       .then((r) => r.json())
-      .then((toUpdateDoctor) => {
-        // console.log(toUpdateDoctor);
-        setToUpdateDoctor(toUpdateDoctor)
-        history.push(`/doctor/update/${toUpdateDoctor[0].id}`);
+      .then((toBeUpdatedDoctor) => {
+        console.log(toBeUpdatedDoctor);
+
+        if (Array.isArray(toBeUpdatedDoctor)) {
+          setToBeUpdatedDoctor(toBeUpdatedDoctor[0]);
+          history.push(`/doctor/update/${toBeUpdatedDoctor[0].id}`);
+        } else {
+          setToBeUpdatedDoctor(toBeUpdatedDoctor);
+          history.push(`/doctor/update/${toBeUpdatedDoctor.id}`);
+        }
+      })
+      .catch((error) => {
+        window.alert("Doctor information must be complete.")
+        history.push(`/create-doctor`);
       });
-    // history.push(`/doctor/update/${doctor.id}`)
+
+    // .then((toUpdateDoctor) => {
+    //   // console.log(toUpdateDoctor);
+    //   if (Array.isArray(toUpdateDoctor)) {
+    //     setToUpdateDoctor(toUpdateDoctor[0]);
+    //     history.push(`/doctor/update/${toUpdateDoctor[0].id}`);
+    //   } else {
+    //     setToUpdateDoctor(toUpdateDoctor);
+    //     history.push(`/doctor/update/${toUpdateDoctor.id}`);
+    //   }
+    // })
+    // .catch((error) => {
+    //   history.push(`/create-doctor`);
+    // });
   }
 
   return (
@@ -129,15 +153,28 @@ function AppointmentDetails({ onUpdateAppointment }) {
             </td>
           </tr>
 
+          {/*******************************************************/}
           <tr>
-            <td className="left-column">Doctor's name</td>
+            <td className="left-column">Doctor's Last Name</td>
             <td>
-              {appointmentDoctor.doctor_firstname === null
-                ? ""
-                : appointmentDoctor.doctor_firstname}{" "}
               {appointmentDoctor.doctor_lastname === null
                 ? ""
                 : appointmentDoctor.doctor_lastname}
+              {/* Temporary fix */}
+              {appointment.appointment_doctor === null &&
+              appointmentDoctor.doctor_lastname !== null
+                ? ""
+                : appointment.appointment_doctor}
+            </td>
+          </tr>
+          {/*******************************************************/}
+
+          <tr>
+            <td className="left-column">Doctor's First Name</td>
+            <td>
+              {appointmentDoctor.doctor_firstname === null
+                ? ""
+                : appointmentDoctor.doctor_firstname}
             </td>
           </tr>
 
@@ -157,17 +194,33 @@ function AppointmentDetails({ onUpdateAppointment }) {
                 : appointmentDoctor.doctor_phone}
             </td>
           </tr>
+          {/*******************************************************/}
+
           <tr>
-            <td className="left-column">Patient's name</td>
+            <td className="left-column">Patient's Last Name</td>
             <td>
-              {appointmentPatient.patient_firstname === null
-                ? ""
-                : appointmentPatient.patient_firstname}{" "}
               {appointmentPatient.patient_lastname === null
                 ? ""
                 : appointmentPatient.patient_lastname}
+
+              {/* Temporary fix */}
+              {appointment.appointment_patient === null &&
+              appointmentPatient.patient_lastname !== null
+                ? ""
+                : appointment.appointment_patient}
             </td>
           </tr>
+          {/*******************************************************/}
+
+          <tr>
+            <td className="left-column">Patient's First Name</td>
+            <td>
+              {appointmentPatient.patient_firstname === null
+                ? ""
+                : appointmentPatient.patient_firstname}
+            </td>
+          </tr>
+
           <tr>
             <td className="left-column">Patient's phone</td>
             <td>

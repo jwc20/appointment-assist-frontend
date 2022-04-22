@@ -72,6 +72,7 @@ function UpdateAppointment() {
 
   return (
     <div>
+      <h3 className="pad-left">Update An Appointment</h3>
       <FormDiv>
         <form onSubmit={handleSubmit}>
           <div className="grid-container halves">
@@ -83,6 +84,7 @@ function UpdateAppointment() {
                 onChange={handleAppointmentDoctorChange}
                 value={appointment_doctor}
                 placeholder="Doctor's Lastname"
+                required
               />
             </div>
 
@@ -94,6 +96,7 @@ function UpdateAppointment() {
                 onChange={handleAppointmentPatientChange}
                 value={appointment_patient}
                 placeholder="Patient's Lastname"
+                required
               />
             </div>
           </div>
@@ -107,6 +110,7 @@ function UpdateAppointment() {
                 onChange={handleAppointmentDateChange}
                 value={appointment_date}
                 placeholder="date"
+                required
               />
             </div>
 

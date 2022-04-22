@@ -14,7 +14,7 @@ function Patients() {
 
   return (
     <div className="list-container">
-      <p>This is the Patients Page</p>
+      <h3>Current Patients</h3>
 
       <PatientList patients={patients} />
     </div>
