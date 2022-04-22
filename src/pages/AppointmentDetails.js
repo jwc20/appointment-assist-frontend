@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
+import { useHistory } from "react-router-dom";
 
 const BASE_URL = "http://localhost:9292";
 
@@ -25,7 +26,8 @@ const AppTable = styled.table`
   }
 `;
 
-function AppointmentDetails() {
+function AppointmentDetails({ onUpdateAppointment }) {
+  const history = useHistory();
   let appointmentDoctor = {};
   let appointmentPatient = {};
   const { id } = useParams();
@@ -71,6 +73,11 @@ function AppointmentDetails() {
     }
   });
   if (!appointment) return <h2>Loading appointment data...</h2>;
+
+
+  function handleUpdateAppointment(e) {
+    history.push(`/appointment/update/${appointment.id}`)
+  }
 
   return (
     <div>
@@ -185,6 +192,26 @@ function AppointmentDetails() {
           </tr>
         </tbody>
       </AppTable>
+
+
+      <div className="grid-container thirds">
+        <div>
+          <button type="button" onClick={handleUpdateAppointment}>Appointment</button>
+        </div>
+
+        <div>
+          <button type="button">Doctor</button>
+        </div>
+
+        <div>
+          <button type="button">Patient</button>
+        </div>
+
+
+      </div>
+
+
+
     </div>
   );
 }
