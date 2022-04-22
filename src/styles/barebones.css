@@ -526,8 +526,6 @@ form {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .u-full-width {
   margin: auto;
-  padding-left: 50px;
-  padding-right: 50px;
   width: 100%;
   box-sizing: border-box;
 }
@@ -596,6 +594,11 @@ there.
   position: relative;
 }
 
+.list-container {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
 .center {
   margin: 0;
   position: absolute;
@@ -609,3 +612,4 @@ there.
   margin: auto;
   width: 50%;
 }
+

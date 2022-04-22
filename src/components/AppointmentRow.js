@@ -33,10 +33,12 @@ function AppointmentRow({
       </td>
 
       <td>
-        {appointment.appointment_date === null
+        {appointment.appointment_date === null ||
+        appointment.appointment_date === undefined
           ? ""
-          : appointment.appointment_date}
+          : appointment.appointment_date.toString().split("T")[0]}
       </td>
+
       <td>
         {appointment.appointment_duration === null
           ? ""

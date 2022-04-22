@@ -14,7 +14,7 @@ function Doctors() {
   }, []);
 
   return (
-    <div>
+    <div className="list-container">
       <p>This is the Doctors Page</p>
       <DoctorList doctors={doctors}/>
     </div>

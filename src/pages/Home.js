@@ -12,7 +12,7 @@ function Home() {
   }
 
   return (
-    <div>
+    <div className="list-container">
       <p>This is the Home Page</p>
       {/*
         <Logo />

@@ -25,20 +25,6 @@ function CreateAppointment() {
   const [appointment_doctor, setAppointmentDoctor] = useState("");
   const [appointment_patient, setAppointmentPatient] = useState("");
 
-  // const [doctorFirstName, setDoctorFirstName] = useState("");
-  // const [doctorPhone, setDoctorPhone] = useState("");
-  // const [doctorEmail, setDoctorEmail] = useState("");
-
-  // const [doctor_id, setDoctorID] = useState(0);
-  // const [patient_id, setPatientID] = useState(0);
-
-  // const [patientFirstName, setPatientFirstName] = useState("");
-  // const [patientPhone, setPatientPhone] = useState("");
-  // const [patientEmail, setPatientEmail] = useState("");
-  // const [patientAddress, setPatientAddress] = useState("");
-  // const [patientCity, setPatientCity] = useState("");
-  // const [patientState, setPatientState] = useState("");
-
   function handleSubmit(e) {
     e.preventDefault();
 
@@ -54,23 +40,9 @@ function CreateAppointment() {
         appointment_reason: appointment_reason,
         appointment_doctor: appointment_doctor,
         appointment_patient: appointment_patient,
-        // doctorFirstName: doctorFirstName,
-        // doctorPhone: doctorPhone,
-        // doctorEmail: doctorEmail,
-        // patientLastName: patientLastName,
-        // patientFirstName: patientFirstName,
-        // patientPhone: patientPhone,
-        // patientEmail: patientEmail,
-        // patientAddress: patientAddress,
-        // patientCity: patientCity,
-        // patientState: patientState,
-        // doctor_id: doctor_id,
-        // patient_id: patient_id,
       }),
     })
       .then((r) => r.json())
-      // .then((newAppointment) => onAddAppointment(newAppointment));
-
       .then((newAppointment) => {
         console.log(newAppointment);
         setNewAppointment(newAppointment);
@@ -101,13 +73,6 @@ function CreateAppointment() {
   function handleAppointmentPatientChange(e) {
     setAppointmentPatient(e.target.value);
   }
-  // function handleDoctorIDChange(e) {
-  //   setDoctorID(e.target.value);
-  // }
-
-  // function handlePatientIDChange(e) {
-  //   setPatientID(e.target.value);
-  // }
 
   return (
     <FormDiv>

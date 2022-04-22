@@ -13,7 +13,7 @@ function Patients() {
   }, []);
 
   return (
-    <div>
+    <div className="list-container">
       <p>This is the Patients Page</p>
 
       <PatientList patients={patients} />

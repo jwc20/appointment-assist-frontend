@@ -79,9 +79,10 @@ function AppointmentDetails() {
           <tr>
             <td className="left-column">Date</td>
             <td className="right-column">
-              {appointment.appointment_date === null
+              {appointment.appointment_date === null ||
+              appointment.appointment_date === undefined
                 ? ""
-                : appointment.appointment_date}
+                : appointment.appointment_date.toString().split("T")[0]}
             </td>
           </tr>
           <tr>
@@ -113,13 +114,12 @@ function AppointmentDetails() {
           <tr>
             <td className="left-column">Doctor's name</td>
             <td>
+              {appointmentDoctor.doctor_firstname === null
+                ? ""
+                : appointmentDoctor.doctor_firstname}{" "}
               {appointmentDoctor.doctor_lastname === null
                 ? ""
                 : appointmentDoctor.doctor_lastname}
-              ,{" "}
-              {appointmentDoctor.doctor_firstname === null
-                ? ""
-                : appointmentDoctor.doctor_firstname}
             </td>
           </tr>
 
@@ -142,13 +142,12 @@ function AppointmentDetails() {
           <tr>
             <td className="left-column">Patient's name</td>
             <td>
+              {appointmentPatient.patient_firstname === null
+                ? ""
+                : appointmentPatient.patient_firstname}{" "}
               {appointmentPatient.patient_lastname === null
                 ? ""
                 : appointmentPatient.patient_lastname}
-              ,{" "}
-              {appointmentPatient.patient_firstname === null
-                ? ""
-                : appointmentPatient.patient_firstname}
             </td>
           </tr>
           <tr>
@@ -171,14 +170,14 @@ function AppointmentDetails() {
           <tr>
             <td className="left-column">Patient's address</td>
             <td>
-              {appointmentPatient.patient_address === null
+              {appointmentPatient.patient_address === null ||
+              appointmentPatient.patient_address === undefined
                 ? ""
-                : appointmentPatient.patient_address}
-              {", "}
-              {appointmentPatient.patient_city === null
+                : appointmentPatient.patient_address + ", "}
+              {appointmentPatient.patient_city === null ||
+              appointmentPatient.patient_city === undefined
                 ? ""
-                : appointmentPatient.patient_city}
-              {", "}
+                : appointmentPatient.patient_city + ", "}
               {appointmentPatient.patient_state === null
                 ? ""
                 : appointmentPatient.patient_state}
