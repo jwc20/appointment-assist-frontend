@@ -2,7 +2,6 @@ import PatientList from "./PatientList";
 const BASE_URL = "http://localhost:9292";
 
 function PatientRow({ patient, onDeletePatient }) {
-
   function handleDeletePatient() {
     fetch(BASE_URL + `/patients/${patient.id}`, {
       method: "DELETE",
@@ -10,11 +9,6 @@ function PatientRow({ patient, onDeletePatient }) {
       .then((r) => r.json())
       .then((deletePatient) => onDeletePatient(deletePatient));
   }
-
-
-
-
-
 
   return (
     <tr>
@@ -26,9 +20,14 @@ function PatientRow({ patient, onDeletePatient }) {
       <td>{patient.patient_phone}</td>
       <td>{patient.patient_email}</td>
       <td>
-        <button type="button" className="button-x" onClick={handleDeletePatient}>X</button>
+        <button
+          type="button"
+          className="button-x"
+          onClick={handleDeletePatient}
+        >
+          X
+        </button>
       </td>
-
     </tr>
   );
 }

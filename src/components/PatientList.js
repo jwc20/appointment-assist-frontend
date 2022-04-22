@@ -21,7 +21,6 @@ function PatientList() {
     />
   ));
 
-
   function handleDeletePatient(patientToDelete) {
     const updatedPatients = patients.filter(
       (patient) => patient.id !== patientToDelete.id
@@ -29,9 +28,8 @@ function PatientList() {
     setPatients(updatedPatients);
   }
 
-
   return (
-    <div className="list-container">
+    <div>
       <table className="u-full-width">
         <thead>
           <tr>

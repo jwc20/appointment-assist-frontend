@@ -14,7 +14,6 @@ function DoctorList() {
       .then((doctors) => setDoctors(doctors));
   }, []);
 
-
   const doctorRow = doctors.map((doctor) => (
     <DoctorRow
       key={doctor.id}
