@@ -89,6 +89,12 @@ function AppointmentDetails({ onUpdateAppointment }) {
         console.log(toBeUpdatedDoctor);
         setToBeUpdatedDoctor(toBeUpdatedDoctor);
         history.push(`/doctor/update/${toBeUpdatedDoctor.id}`);
+      })
+      .catch((error) => {
+        window.alert(
+          "Doctor not in database, please create one in the Doctor page."
+        );
+        history.push("/create-doctor");
       });
   }
 
@@ -99,6 +105,12 @@ function AppointmentDetails({ onUpdateAppointment }) {
         console.log(toBeUpdatedPatient);
         setToBeUpdatedPatient(toBeUpdatedPatient);
         history.push(`/patient/update/${toBeUpdatedPatient.id}`);
+      })
+      .catch((error) => {
+        window.alert(
+          "Patient not in database, please create one in the Patient page."
+        );
+        history.push("/create-patient");
       });
   }
 

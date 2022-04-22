@@ -52,40 +52,41 @@ function CreateAppointment() {
     })
       .then((r) => r.json())
       .then((newAppointment) => {
-        console.log(newAppointment);
         setNewAppointment(newAppointment);
+        console.log(newAppointment)
       });
     console.log("New appointment made.");
 
+
     // Need to find a way to check if the doctor and patient already exists in database
     /******************************************************************/
-    fetch(BASE_URL + "/doctors", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        doctor_lastname: doctor_lastname,
-      }),
-    })
-      .then((r) => r.json())
-      .then(setDoctor);
+    // fetch(BASE_URL + "/doctors", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({
+    //     doctor_lastname: doctor_lastname,
+    //   }),
+    // })
+    //   .then((r) => r.json())
+    //   .then(setDoctor);
 
-    console.log("Created a doctor");
+    // console.log("Created a doctor");
 
-    fetch(BASE_URL + "/patients", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        patient_lastname: patient_lastname,
-      }),
-    })
-      .then((r) => r.json())
-      .then(setPatient);
+    // fetch(BASE_URL + "/patients", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({
+    //     patient_lastname: patient_lastname,
+    //   }),
+    // })
+    //   .then((r) => r.json())
+    //   .then(setPatient);
 
-    console.log("Created a patient");
+    // console.log("Created a patient");
 
     /******************************************************************/
   }
@@ -114,13 +115,13 @@ function CreateAppointment() {
     setAppointmentReason(e.target.value);
   }
 
-  function handleAppointmentDoctorChange(e) {
-    setAppointmentDoctor(e.target.value);
-  }
+  // function handleAppointmentDoctorChange(e) {
+  //   setAppointmentDoctor(e.target.value);
+  // }
 
-  function handleAppointmentPatientChange(e) {
-    setAppointmentPatient(e.target.value);
-  }
+  // function handleAppointmentPatientChange(e) {
+  //   setAppointmentPatient(e.target.value);
+  // }
 
   return (
     <div>
