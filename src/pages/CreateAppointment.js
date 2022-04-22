@@ -1,6 +1,16 @@
 import { useEffect, useState } from "react";
+import styled from "styled-components";
 
 const BASE_URL = "http://localhost:9292";
+
+const FormDiv = styled.div`
+  width: 90%;
+  margin: auto;
+  background: rgb(240, 240, 240);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 function CreateAppointment() {
   const [doctors, setDoctors] = useState([]);
@@ -28,8 +38,6 @@ function CreateAppointment() {
   // const [patientAddress, setPatientAddress] = useState("");
   // const [patientCity, setPatientCity] = useState("");
   // const [patientState, setPatientState] = useState("");
-
-
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -102,48 +110,91 @@ function CreateAppointment() {
   // }
 
   return (
-    <div>
-      <p>Hello </p>
+    <FormDiv>
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          onChange={handleAppointmentTypeChange}
-          value={appointment_type}
-          placeholder="type"
-        />
-        <input
-          type="date"
-          onChange={handleAppointmentDateChange}
-          value={appointment_date}
-          placeholder="date"
-        />
-        <input
-          type="number"
-          onChange={handleAppointmentDurationChange}
-          value={appointment_duration}
-          placeholder="duration"
-        />
-        <input
-          type="text"
-          onChange={handleAppointmentReasonChange}
-          value={appointment_reason}
-          placeholder="reason"
-        />
-        <input
-          type="text"
-          onChange={handleAppointmentDoctorChange}
-          value={appointment_doctor}
-          placeholder="Doctor's Lastname"
-        />
-        <input
-          type="text"
-          onChange={handleAppointmentPatientChange}
-          value={appointment_patient}
-          placeholder="Patient's Lastname"
-        />
-        <button type="submit">Submit</button>
+        <div className="grid-container halves">
+          <div>
+            <label for="appdoc">Doctor's Name</label>
+            <input
+              id="appdoc"
+              type="text"
+              onChange={handleAppointmentDoctorChange}
+              value={appointment_doctor}
+              placeholder="Doctor's Lastname"
+            />
+          </div>
+
+          <div>
+            <label for="apppat">Patient's Name</label>
+            <input
+              id="apppat"
+              type="text"
+              onChange={handleAppointmentPatientChange}
+              value={appointment_patient}
+              placeholder="Patient's Lastname"
+            />
+          </div>
+        </div>
+
+        <div className="grid-container thirds">
+          <div>
+            <label for="appdate">Appointment Date</label>
+            <input
+              id="appdate"
+              type="date"
+              onChange={handleAppointmentDateChange}
+              value={appointment_date}
+              placeholder="date"
+            />
+          </div>
+
+          <div>
+            <label for="appdur">Appointment Duration</label>
+            <input
+              id="appdur"
+              type="number"
+              onChange={handleAppointmentDurationChange}
+              value={appointment_duration}
+              placeholder="duration"
+            />
+          </div>
+
+          <div>
+            <label for="apptype">Appointment Type</label>
+            <select
+              id="apptype"
+              type="text"
+              onChange={handleAppointmentTypeChange}
+              value={appointment_type}
+              placeholder="type"
+            >
+              <option value="New-Patient">New Patient Evaluation</option>
+              <option value="Walk-in">Walk-in</option>
+              <option value="Follow-up">Routine Follow-Up</option>
+              <option value="Urgent">Urgent Visit</option>
+            </select>
+          </div>
+        </div>
+
+        <div className="grid-container full">
+          <label for="appreason">Appointment Reason</label>
+          <textarea
+            id="appreason"
+            className="u-full-width"
+            type="text"
+            onChange={handleAppointmentReasonChange}
+            value={appointment_reason}
+            placeholder="reason"
+          ></textarea>
+        </div>
+
+        <div className="grid-container full">
+          <button type="submit" className="button-primary">
+            Submit
+          </button>
+        </div>
       </form>
-    </div>
+    </FormDiv>
   );
 }
 

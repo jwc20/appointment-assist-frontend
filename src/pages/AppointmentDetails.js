@@ -29,10 +29,10 @@ function AppointmentDetails() {
   let appointmentDoctor = {};
   let appointmentPatient = {};
   const { id } = useParams();
-  const [appointment, setAppointment] = useState(null);
-  const [doctor, setDoctor] = useState(null);
+  const [appointment, setAppointment] = useState([]);
+  const [doctor, setDoctor] = useState("");
   const [doctors, setDoctors] = useState([]);
-  const [patient, setPatient] = useState(null);
+  const [patient, setPatient] = useState("");
   const [patients, setPatients] = useState([]);
 
   useEffect(() => {

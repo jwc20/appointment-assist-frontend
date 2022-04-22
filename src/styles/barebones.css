@@ -432,6 +432,12 @@ label > .label-body {
   font-weight: normal;
 }
 
+.create-appointment-form {
+  border: thick;
+  justify-content: center;
+}
+
+
 /* Lists
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 ul {
@@ -522,7 +528,7 @@ form {
   margin: auto;
   padding-left: 50px;
   padding-right: 50px;
-  width: 70%;
+  width: 100%;
   box-sizing: border-box;
 }
 .u-max-full-width {
