@@ -81,23 +81,33 @@ function AppointmentDetails({ onUpdateAppointment }) {
   }
 
   function handleUpdateDoctor(e) {
-    fetch(BASE_URL + `/doctors/search/${appointmentDoctor.doctor_lastname}`)
-      .then((r) => r.json())
-      .then((toBeUpdatedDoctor) => {
-        console.log(toBeUpdatedDoctor);
 
-        if (Array.isArray(toBeUpdatedDoctor)) {
-          setToBeUpdatedDoctor(toBeUpdatedDoctor[0]);
-          history.push(`/doctor/update/${toBeUpdatedDoctor[0].id}`);
-        } else {
-          setToBeUpdatedDoctor(toBeUpdatedDoctor);
-          history.push(`/doctor/update/${toBeUpdatedDoctor.id}`);
-        }
-      })
-      .catch((error) => {
-        window.alert("Doctor information must be complete.")
-        history.push(`/create-doctor`);
-      });
+    fetch(BASE_URL + `/doctors/${appointmentDoctor.id}`)
+    .then(r => r.json())
+    .then(toBeUpdatedDoctor => {
+      console.log(toBeUpdatedDoctor)
+      setToBeUpdatedDoctor(toBeUpdatedDoctor);
+      history.push(`/doctor/update/${toBeUpdatedDoctor.id}`);
+    })
+
+
+    // fetch(BASE_URL + `/doctors/search/${appointmentDoctor.doctor_lastname}`)
+    //   .then((r) => r.json())
+    //   .then((toBeUpdatedDoctor) => {
+    //     console.log(toBeUpdatedDoctor);
+
+    //     if (Array.isArray(toBeUpdatedDoctor)) {
+    //       setToBeUpdatedDoctor(toBeUpdatedDoctor[0]);
+    //       history.push(`/doctor/update/${toBeUpdatedDoctor[0].id}`);
+    //     } else {
+    //       setToBeUpdatedDoctor(toBeUpdatedDoctor);
+    //       history.push(`/doctor/update/${toBeUpdatedDoctor.id}`);
+    //     }
+    //   })
+    //   .catch((error) => {
+    //     window.alert("Doctor information must be complete.")
+    //     // history.push(`/create-doctor`);
+    //   });
 
     // .then((toUpdateDoctor) => {
     //   // console.log(toUpdateDoctor);
@@ -161,10 +171,10 @@ function AppointmentDetails({ onUpdateAppointment }) {
                 ? ""
                 : appointmentDoctor.doctor_lastname}
               {/* Temporary fix */}
-              {appointment.appointment_doctor === null &&
+              {/* {appointment.appointment_doctor === null &&
               appointmentDoctor.doctor_lastname !== null
                 ? ""
-                : appointment.appointment_doctor}
+                : appointment.appointment_doctor} */}
             </td>
           </tr>
           {/*******************************************************/}
@@ -204,10 +214,10 @@ function AppointmentDetails({ onUpdateAppointment }) {
                 : appointmentPatient.patient_lastname}
 
               {/* Temporary fix */}
-              {appointment.appointment_patient === null &&
+              {/* {appointment.appointment_patient === null &&
               appointmentPatient.patient_lastname !== null
                 ? ""
-                : appointment.appointment_patient}
+                : appointment.appointment_patient} */}
             </td>
           </tr>
           {/*******************************************************/}

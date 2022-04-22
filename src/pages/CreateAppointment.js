@@ -15,6 +15,8 @@ const FormDiv = styled.div`
 function CreateAppointment() {
   const [doctors, setDoctors] = useState([]);
   const [patients, setPatients] = useState([]);
+  const [doctor, setDoctor] = useState("");
+  const [patient, setPatient] = useState("");
 
   const [newAppointment, setNewAppointment] = useState([]);
   const [appointment_date, setAppointmentDate] = useState("");
@@ -24,6 +26,9 @@ function CreateAppointment() {
 
   const [appointment_doctor, setAppointmentDoctor] = useState("");
   const [appointment_patient, setAppointmentPatient] = useState("");
+
+  const [doctor_lastname, setDoctorLastName] = useState("");
+  const [patient_lastname, setPatientLastName] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -38,8 +43,11 @@ function CreateAppointment() {
         appointment_date: appointment_date,
         appointment_duration: appointment_duration,
         appointment_reason: appointment_reason,
-        appointment_doctor: appointment_doctor,
-        appointment_patient: appointment_patient,
+
+        // appointment_doctor: appointment_doctor,
+        appointment_doctor: doctor_lastname,
+        // appointment_patient: appointment_patient,
+        appointment_patient: patient_lastname,
       }),
     })
       .then((r) => r.json())
@@ -48,6 +56,68 @@ function CreateAppointment() {
         setNewAppointment(newAppointment);
       });
     console.log("New appointment made.");
+
+    fetch(BASE_URL + "/doctors", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        doctor_lastname: doctor_lastname,
+      }),
+    })
+      .then((r) => r.json())
+      .then(setDoctor);
+    // .then((updateDoctor) => {
+    //   console.log(updatedDoctor);
+    // });
+    console.log("Created a doctor");
+
+    // function handleSubmit(e) {
+    //   e.preventDefault();
+    //   fetch(BASE_URL + "/doctors", {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify({
+    //       doctor_lastname: doctor_lastname,
+    //     }),
+    //   })
+    //     .then((r) => r.json())
+    //     .then(setDoctor);
+    //   // .then((updateDoctor) => {
+    //   //   console.log(updatedDoctor);
+    //   // });
+    //   console.log("Created a doctor");
+    // }
+
+    function handleSubmit(e) {
+      e.preventDefault();
+      fetch(BASE_URL + "/patients", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          patient_lastname: patient_lastname,
+        }),
+      })
+        .then((r) => r.json())
+        .then(setPatient);
+      // .then((updateDoctor) => {
+      //   console.log(updatedDoctor);
+      // });
+      console.log("Created a patient");
+    }
+  }
+
+  function handleDoctorLastNameChange(e) {
+    setDoctorLastName(e.target.value);
+  }
+
+  function handlePatientLastNameChange(e) {
+    setPatientLastName(e.target.value);
   }
 
   function handleAppointmentTypeChange(e) {
@@ -80,7 +150,7 @@ function CreateAppointment() {
       <FormDiv>
         <form onSubmit={handleSubmit}>
           <div className="grid-container halves">
-            <div>
+            {/* <div>
               <label for="appdoc">Doctor's Name</label>
               <input
                 id="appdoc"
@@ -90,9 +160,20 @@ function CreateAppointment() {
                 placeholder="Doctor's Lastname"
                 required
               />
-            </div>
+            </div> */}
 
             <div>
+              <label for="appdoc">Doctor's Name</label>
+              <input
+                id="appdoc"
+                type="text"
+                onChange={handleDoctorLastNameChange}
+                value={doctor_lastname}
+                placeholder="Doctor"
+              />
+            </div>
+
+            {/* <div>
               <label for="apppat">Patient's Name</label>
               <input
                 id="apppat"
@@ -101,6 +182,17 @@ function CreateAppointment() {
                 value={appointment_patient}
                 placeholder="Patient's Lastname"
                 required
+              />
+            </div> */}
+
+            <div>
+              <label for="apppat">Patient's Name</label>
+              <input
+                id="apppat"
+                type="text"
+                onChange={handlePatientLastNameChange}
+                value={patient_lastname}
+                placeholder="Patient"
               />
             </div>
           </div>

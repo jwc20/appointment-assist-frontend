@@ -75,7 +75,10 @@ function UpdateAppointment() {
       <h3 className="pad-left">Update An Appointment</h3>
       <FormDiv>
         <form onSubmit={handleSubmit}>
-          <div className="grid-container halves">
+
+
+          {/* <div className="grid-container halves">
+
             <div>
               <label for="appdoc">Doctor's Name</label>
               <input
@@ -99,7 +102,7 @@ function UpdateAppointment() {
                 required
               />
             </div>
-          </div>
+          </div> */}
 
           <div className="grid-container thirds">
             <div>

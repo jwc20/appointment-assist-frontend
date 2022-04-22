@@ -32,7 +32,7 @@ function UpdateDoctor() {
       body: JSON.stringify({
         id: id,
         doctor_firstname: doctor_firstname,
-        doctor_lastname: doctor_lastname,
+        // doctor_lastname: doctor_lastname,
         doctor_phone: doctor_phone,
         doctor_email: doctor_email,
       }),
@@ -41,6 +41,7 @@ function UpdateDoctor() {
       // .then(setUpdatedDactor);
       .then (updateDoctor => {
         console.log(updatedDoctor)
+        setUpdatedDactor(updateDoctor)
       })
       
       
@@ -82,7 +83,7 @@ function UpdateDoctor() {
               />
             </div>
 
-            <div>
+            {/* <div>
               <label for="appdoc">Last Name</label>
               <input
                 id="appdoc"
@@ -92,7 +93,7 @@ function UpdateDoctor() {
                 placeholder="Last Name"
                 required
               />
-            </div>
+            </div> */}
 
             
           </div>

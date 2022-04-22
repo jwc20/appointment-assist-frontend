@@ -7,6 +7,7 @@ import AppointmentDetails from "../pages/AppointmentDetails";
 import CreateAppointment from "../pages/CreateAppointment";
 import UpdateAppointment from "../pages/UpdateAppointment";
 import UpdateDoctor from "../pages/UpdateDoctor";
+import UpdatePatient from "../pages/UpdatePatient";
 import CreateDoctor from "../pages/CreateDoctor";
 import "../styles/barebones.css";
 
@@ -32,6 +33,9 @@ function App() {
         </Route>
         <Route path="/doctor/update/:id">
           <UpdateDoctor />
+        </Route>
+        <Route path="/patient/update/:id">
+          <UpdatePatient />
         </Route>
         <Route path="/create-appointment">
           <CreateAppointment />
