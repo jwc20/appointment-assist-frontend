@@ -21,6 +21,9 @@ function UpdatePatient() {
   const [patient_lastname, setPatientLastName] = useState("");
   const [patient_phone, setPatientPhone] = useState("");
   const [patient_email, setPatientEmail] = useState("");
+  const [patient_address, setPatientAddress] = useState("");
+  const [patient_city, setPatientCity] = useState("");
+  const [patient_state, setPatientState] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -35,12 +38,15 @@ function UpdatePatient() {
         // patient_lastname: patient_lastname,
         patient_phone: patient_phone,
         patient_email: patient_email,
+        patient_address: patient_address,
+        patient_city: patient_city,
+        patient_state: patient_state,
       }),
     })
       .then((r) => r.json())
       // .then(setUpdatedDactor);
       .then((updatePatient) => {
-        console.log(updatedPatient);
+        // console.log(updatedPatient);
         setUpdatedDactor(updatePatient);
       });
 
@@ -62,6 +68,15 @@ function UpdatePatient() {
   function handlePatientEmailChange(e) {
     setPatientEmail(e.target.value);
   }
+  function handlePatientAddressChange(e) {
+    setPatientAddress(e.target.value);
+  }
+  function handlePatientCityChange(e) {
+    setPatientCity(e.target.value);
+  }
+  function handlePatientStateChange(e) {
+    setPatientState(e.target.value);
+  }
 
   return (
     <div>
@@ -69,7 +84,7 @@ function UpdatePatient() {
 
       <FormDiv>
         <form onSubmit={handleSubmit}>
-          <div className="grid-container halves">
+          <div className="grid-container full">
             <div>
               <label for="appdoc">First Name</label>
               <input
@@ -120,6 +135,45 @@ function UpdatePatient() {
               />
             </div>
           </div>
+
+          <div className="grid-container thirds">
+            <div>
+              <label for="appdoc">Address</label>
+              <input
+                id="appdoc"
+                type="text"
+                onChange={handlePatientAddressChange}
+                value={patient_address}
+                placeholder="Address"
+                required
+              />
+            </div>
+
+            <div>
+              <label for="appdoc">City</label>
+              <input
+                id="appdoc"
+                type="text"
+                onChange={handlePatientCityChange}
+                value={patient_city}
+                placeholder="city"
+                required
+              />
+            </div>
+
+            <div>
+              <label for="appdoc">State</label>
+              <input
+                id="appdoc"
+                type="text"
+                onChange={handlePatientStateChange}
+                value={patient_state}
+                placeholder="State"
+                required
+              />
+            </div>
+          </div>
+
           <div className="grid-container full">
             <button type="submit" className="button-primary">
               Submit

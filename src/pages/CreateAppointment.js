@@ -68,48 +68,22 @@ function CreateAppointment() {
     })
       .then((r) => r.json())
       .then(setDoctor);
-    // .then((updateDoctor) => {
-    //   console.log(updatedDoctor);
-    // });
+
     console.log("Created a doctor");
 
-    // function handleSubmit(e) {
-    //   e.preventDefault();
-    //   fetch(BASE_URL + "/doctors", {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify({
-    //       doctor_lastname: doctor_lastname,
-    //     }),
-    //   })
-    //     .then((r) => r.json())
-    //     .then(setDoctor);
-    //   // .then((updateDoctor) => {
-    //   //   console.log(updatedDoctor);
-    //   // });
-    //   console.log("Created a doctor");
-    // }
+    fetch(BASE_URL + "/patients", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        patient_lastname: patient_lastname,
+      }),
+    })
+      .then((r) => r.json())
+      .then(setPatient);
 
-    function handleSubmit(e) {
-      e.preventDefault();
-      fetch(BASE_URL + "/patients", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          patient_lastname: patient_lastname,
-        }),
-      })
-        .then((r) => r.json())
-        .then(setPatient);
-      // .then((updateDoctor) => {
-      //   console.log(updatedDoctor);
-      // });
-      console.log("Created a patient");
-    }
+    console.log("Created a patient");
   }
 
   function handleDoctorLastNameChange(e) {

@@ -70,7 +70,7 @@ function UpdateDoctor() {
 
       <FormDiv>
         <form onSubmit={handleSubmit}>
-          <div className="grid-container halves">
+          <div className="grid-container full">
             <div>
               <label for="appdoc">First Name</label>
               <input

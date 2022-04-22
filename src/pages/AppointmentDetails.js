@@ -37,6 +37,7 @@ function AppointmentDetails({ onUpdateAppointment }) {
   const [patient, setPatient] = useState("");
   const [patients, setPatients] = useState([]);
   const [toBeUpdatedDoctor, setToBeUpdatedDoctor] = useState("");
+  const [toBeUpdatedPatient, setToBeUpdatedPatient] = useState("");
   const [updatedDoctor, setUpdatedDoctor] = useState("");
 
   useEffect(() => {
@@ -53,15 +54,17 @@ function AppointmentDetails({ onUpdateAppointment }) {
       .then((r) => r.json())
       // .then((appointment) => setAppointment(appointment));
       .then((appointment) => {
-        console.log(appointment);
+        // console.log(appointment);
         setAppointment(appointment);
       });
   }, []);
 
   patients.forEach((eachPatient) => {
+    // console.log(eachPatient)
     for (const key in eachPatient) {
       if (appointment.appointment_patient === eachPatient[key]) {
-        console.log(eachPatient);
+
+        // console.log(eachPatient);
         appointmentPatient = eachPatient;
       }
     }
@@ -70,7 +73,7 @@ function AppointmentDetails({ onUpdateAppointment }) {
   doctors.forEach((eachDoctor) => {
     for (const key in eachDoctor) {
       if (appointment.appointment_doctor === eachDoctor[key]) {
-        console.log(eachDoctor);
+        // console.log(eachDoctor);
         appointmentDoctor = eachDoctor;
       }
     }
@@ -81,47 +84,24 @@ function AppointmentDetails({ onUpdateAppointment }) {
   }
 
   function handleUpdateDoctor(e) {
-
     fetch(BASE_URL + `/doctors/${appointmentDoctor.id}`)
-    .then(r => r.json())
-    .then(toBeUpdatedDoctor => {
-      console.log(toBeUpdatedDoctor)
-      setToBeUpdatedDoctor(toBeUpdatedDoctor);
-      history.push(`/doctor/update/${toBeUpdatedDoctor.id}`);
-    })
+      .then((r) => r.json())
+      .then((toBeUpdatedDoctor) => {
+        console.log(toBeUpdatedDoctor);
+        setToBeUpdatedDoctor(toBeUpdatedDoctor);
+        history.push(`/doctor/update/${toBeUpdatedDoctor.id}`);
+      });
+  }
 
 
-    // fetch(BASE_URL + `/doctors/search/${appointmentDoctor.doctor_lastname}`)
-    //   .then((r) => r.json())
-    //   .then((toBeUpdatedDoctor) => {
-    //     console.log(toBeUpdatedDoctor);
-
-    //     if (Array.isArray(toBeUpdatedDoctor)) {
-    //       setToBeUpdatedDoctor(toBeUpdatedDoctor[0]);
-    //       history.push(`/doctor/update/${toBeUpdatedDoctor[0].id}`);
-    //     } else {
-    //       setToBeUpdatedDoctor(toBeUpdatedDoctor);
-    //       history.push(`/doctor/update/${toBeUpdatedDoctor.id}`);
-    //     }
-    //   })
-    //   .catch((error) => {
-    //     window.alert("Doctor information must be complete.")
-    //     // history.push(`/create-doctor`);
-    //   });
-
-    // .then((toUpdateDoctor) => {
-    //   // console.log(toUpdateDoctor);
-    //   if (Array.isArray(toUpdateDoctor)) {
-    //     setToUpdateDoctor(toUpdateDoctor[0]);
-    //     history.push(`/doctor/update/${toUpdateDoctor[0].id}`);
-    //   } else {
-    //     setToUpdateDoctor(toUpdateDoctor);
-    //     history.push(`/doctor/update/${toUpdateDoctor.id}`);
-    //   }
-    // })
-    // .catch((error) => {
-    //   history.push(`/create-doctor`);
-    // });
+  function handleUpdatePatient(e) {
+    fetch(BASE_URL + `/patients/${appointmentPatient.id}`)
+      .then((r) => r.json())
+      .then((toBeUpdatedPatient) => {
+        console.log(toBeUpdatedPatient);
+        setToBeUpdatedPatient(toBeUpdatedPatient);
+        history.push(`/patient/update/${toBeUpdatedPatient.id}`);
+      });
   }
 
   return (
@@ -281,7 +261,7 @@ function AppointmentDetails({ onUpdateAppointment }) {
         </div>
 
         <div>
-          <button type="button">Patient</button>
+          <button type="button" onClick={handleUpdatePatient}>Patient</button>
         </div>
       </div>
     </div>
