@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
+import { useHistory } from "react-router-dom";
 
 const BASE_URL = "http://localhost:9292";
 
@@ -13,6 +14,7 @@ const FormDiv = styled.div`
 `;
 
 function CreateAppointment() {
+  const history = useHistory();
   const [doctors, setDoctors] = useState([]);
   const [patients, setPatients] = useState([]);
   const [doctor, setDoctor] = useState("");
@@ -57,6 +59,7 @@ function CreateAppointment() {
       });
     console.log("New appointment made.");
 
+    history.push("/")
 
     // Need to find a way to check if the doctor and patient already exists in database
     /******************************************************************/
