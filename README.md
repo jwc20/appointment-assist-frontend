@@ -1,6 +1,7 @@
 # Doctor's appointment
 
-### As a user(the doctors' assistant) I should be able to:
+
+## As a user(the doctors' assistant) I should be able to:
 
 - See all the appointments I have on the main page
   - See the name of the patient, location of the appointment, date and start time, and the **Details** button.
@@ -14,13 +15,6 @@
     - Click Submit button to save.
     - See the updated appointment list on the main page.
 
-## TODO:
-
-- [ ] Add delete button next to details button on wireframes
-- [ ] Task 2
-- [ ] Task 3
-- [ ] Task 4
-- [ ] Task 5
 
 ## Directory:
 
@@ -39,18 +33,44 @@
 │   └── wireframes
 │       ├── AppointmentDetails.png
 │       ├── CreateAppointmentForm.png
-│       └── MainPage.png
+│       ├── MainPage.png
+│       ├── appointment_detail_list.png
+│       ├── create_appointment_form.png
+│       ├── doctor_profile_list.png
+│       ├── main_page.png
+│       └── patient_profile_list.png
 └── src
-    ├── App.css
-    ├── App.js
-    ├── App.test.js
+    ├── components
+    │   ├── App.js
+    │   ├── AppointmentList.js
+    │   ├── AppointmentRow.js
+    │   ├── DoctorList.js
+    │   ├── DoctorRow.js
+    │   ├── Logo.js
+    │   ├── NavBar.js
+    │   ├── PatientList.js
+    │   ├── PatientRow.js
+    │   ├── Routes.js
+    │   └── logo.png
     ├── index.css
     ├── index.js
-    ├── logo.svg
-    ├── reportWebVitals.js
-    └── setupTests.js
+    ├── pages
+    │   ├── AppointmentDetails.js
+    │   ├── CreateAppointment.js
+    │   ├── CreateDoctor.js
+    │   ├── CreatePatient.js
+    │   ├── Doctors.js
+    │   ├── Home.js
+    │   ├── Patients.js
+    │   ├── UpdateAppointment.js
+    │   ├── UpdateDoctor.js
+    │   └── UpdatePatient.js
+    └── styles
+        ├── barebones.css
+        ├── normalize.css
+        └── skeleton-legacy.css
 
-3 directories, 20 files
+6 directories, 43 files
 ```
 
 ## Wireframe
@@ -79,6 +99,8 @@
 
 In the project directory, you can run:
 
+### `npm install`
+
 ### `npm start`
 
 Runs the app in the development mode.\
@@ -88,4 +110,3 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 ### `npm run eject`
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
