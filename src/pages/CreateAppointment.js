@@ -57,6 +57,8 @@ function CreateAppointment() {
       });
     console.log("New appointment made.");
 
+    // Need to find a way to check if the doctor and patient already exists in database
+    /******************************************************************/
     fetch(BASE_URL + "/doctors", {
       method: "POST",
       headers: {
@@ -84,6 +86,8 @@ function CreateAppointment() {
       .then(setPatient);
 
     console.log("Created a patient");
+
+    /******************************************************************/
   }
 
   function handleDoctorLastNameChange(e) {
@@ -125,7 +129,7 @@ function CreateAppointment() {
         <form onSubmit={handleSubmit}>
           <div className="grid-container halves">
             {/* <div>
-              <label for="appdoc">Doctor's Name</label>
+              <label htmlFor="appdoc">Doctor's Name</label>
               <input
                 id="appdoc"
                 type="text"
@@ -137,18 +141,19 @@ function CreateAppointment() {
             </div> */}
 
             <div>
-              <label for="appdoc">Doctor's Name</label>
+              <label htmlFor="appdoc">Doctor's Name</label>
               <input
                 id="appdoc"
                 type="text"
                 onChange={handleDoctorLastNameChange}
                 value={doctor_lastname}
                 placeholder="Doctor"
+                required
               />
             </div>
 
             {/* <div>
-              <label for="apppat">Patient's Name</label>
+              <label htmlFor="apppat">Patient's Name</label>
               <input
                 id="apppat"
                 type="text"
@@ -160,20 +165,21 @@ function CreateAppointment() {
             </div> */}
 
             <div>
-              <label for="apppat">Patient's Name</label>
+              <label htmlFor="apppat">Patient's Name</label>
               <input
                 id="apppat"
                 type="text"
                 onChange={handlePatientLastNameChange}
                 value={patient_lastname}
                 placeholder="Patient"
+                required
               />
             </div>
           </div>
 
           <div className="grid-container thirds">
             <div>
-              <label for="appdate">Appointment Date</label>
+              <label htmlFor="appdate">Appointment Date</label>
               <input
                 id="appdate"
                 type="date"
@@ -185,7 +191,7 @@ function CreateAppointment() {
             </div>
 
             <div>
-              <label for="appdur">Appointment Duration</label>
+              <label htmlFor="appdur">Appointment Duration</label>
               <input
                 id="appdur"
                 type="number"
@@ -196,14 +202,13 @@ function CreateAppointment() {
             </div>
 
             <div>
-              <label for="apptype">Appointment Type</label>
+              <label htmlFor="apptype">Appointment Type</label>
               <select
                 id="apptype"
                 type="text"
                 onChange={handleAppointmentTypeChange}
                 value={appointment_type}
                 placeholder="type"
-                required
               >
                 <option value="New-Patient">New Patient Evaluation</option>
                 <option value="Walk-in">Walk-in</option>
@@ -214,7 +219,7 @@ function CreateAppointment() {
           </div>
 
           <div className="grid-container full">
-            <label for="appreason">Appointment Reason</label>
+            <label htmlFor="appreason">Appointment Reason</label>
             <textarea
               id="appreason"
               className="u-full-width"

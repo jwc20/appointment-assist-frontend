@@ -64,7 +64,7 @@ function CreateDoctor() {
         <form onSubmit={handleSubmit}>
           <div className="grid-container halves">
             <div>
-              <label for="appdoc">First Name</label>
+              <label htmlFor="appdoc">First Name</label>
               <input
                 id="appdoc"
                 type="text"
@@ -75,7 +75,7 @@ function CreateDoctor() {
             </div>
 
             <div>
-              <label for="appdoc">Last Name</label>
+              <label htmlFor="appdoc">Last Name</label>
               <input
                 id="appdoc"
                 type="text"
@@ -88,7 +88,7 @@ function CreateDoctor() {
 
           <div className="grid-container halves">
             <div>
-              <label for="appdoc">Phone</label>
+              <label htmlFor="appdoc">Phone</label>
               <input
                 id="appdoc"
                 type="text"
@@ -99,7 +99,7 @@ function CreateDoctor() {
             </div>
 
             <div>
-              <label for="appdoc">Email</label>
+              <label htmlFor="appdoc">Email</label>
               <input
                 id="appdoc"
                 type="text"

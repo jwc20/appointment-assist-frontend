@@ -9,6 +9,7 @@ import UpdateAppointment from "../pages/UpdateAppointment";
 import UpdateDoctor from "../pages/UpdateDoctor";
 import UpdatePatient from "../pages/UpdatePatient";
 import CreateDoctor from "../pages/CreateDoctor";
+import CreatePatient from "../pages/CreatePatient";
 import "../styles/barebones.css";
 
 function App() {
@@ -40,9 +41,11 @@ function App() {
         <Route path="/create-appointment">
           <CreateAppointment />
         </Route>
-
         <Route path="/create-doctor">
           <CreateDoctor />
+        </Route>
+        <Route path="/create-patient">
+          <CreatePatient />
         </Route>
       </Switch>
     </div>

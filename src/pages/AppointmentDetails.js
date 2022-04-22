@@ -63,7 +63,6 @@ function AppointmentDetails({ onUpdateAppointment }) {
     // console.log(eachPatient)
     for (const key in eachPatient) {
       if (appointment.appointment_patient === eachPatient[key]) {
-
         // console.log(eachPatient);
         appointmentPatient = eachPatient;
       }
@@ -73,8 +72,8 @@ function AppointmentDetails({ onUpdateAppointment }) {
   doctors.forEach((eachDoctor) => {
     for (const key in eachDoctor) {
       if (appointment.appointment_doctor === eachDoctor[key]) {
-        // console.log(eachDoctor);
         appointmentDoctor = eachDoctor;
+        console.log(appointmentDoctor);
       }
     }
   });
@@ -92,7 +91,6 @@ function AppointmentDetails({ onUpdateAppointment }) {
         history.push(`/doctor/update/${toBeUpdatedDoctor.id}`);
       });
   }
-
 
   function handleUpdatePatient(e) {
     fetch(BASE_URL + `/patients/${appointmentPatient.id}`)
@@ -147,14 +145,9 @@ function AppointmentDetails({ onUpdateAppointment }) {
           <tr>
             <td className="left-column">Doctor's Last Name</td>
             <td>
-              {appointmentDoctor.doctor_lastname === null
-                ? ""
-                : appointmentDoctor.doctor_lastname}
-              {/* Temporary fix */}
-              {/* {appointment.appointment_doctor === null &&
-              appointmentDoctor.doctor_lastname !== null
-                ? ""
-                : appointment.appointment_doctor} */}
+              {appointment.appointment_doctor === null
+                ? appointmentDoctor.doctor_lastname
+                : appointment.appointment_doctor}
             </td>
           </tr>
           {/*******************************************************/}
@@ -190,8 +183,8 @@ function AppointmentDetails({ onUpdateAppointment }) {
             <td className="left-column">Patient's Last Name</td>
             <td>
               {appointmentPatient.patient_lastname === null
-                ? ""
-                : appointmentPatient.patient_lastname}
+                ? appointmentPatient.patient_lastname
+                : appointment.appointment_patient}
 
               {/* Temporary fix */}
               {/* {appointment.appointment_patient === null &&
@@ -261,7 +254,9 @@ function AppointmentDetails({ onUpdateAppointment }) {
         </div>
 
         <div>
-          <button type="button" onClick={handleUpdatePatient}>Patient</button>
+          <button type="button" onClick={handleUpdatePatient}>
+            Patient
+          </button>
         </div>
       </div>
     </div>

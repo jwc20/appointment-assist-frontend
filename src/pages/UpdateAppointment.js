@@ -80,7 +80,7 @@ function UpdateAppointment() {
           {/* <div className="grid-container halves">
 
             <div>
-              <label for="appdoc">Doctor's Name</label>
+              <label htmlFor="appdoc">Doctor's Name</label>
               <input
                 id="appdoc"
                 type="text"
@@ -92,7 +92,7 @@ function UpdateAppointment() {
             </div>
 
             <div>
-              <label for="apppat">Patient's Name</label>
+              <label htmlFor="apppat">Patient's Name</label>
               <input
                 id="apppat"
                 type="text"
@@ -106,7 +106,7 @@ function UpdateAppointment() {
 
           <div className="grid-container thirds">
             <div>
-              <label for="appdate">Appointment Date</label>
+              <label htmlFor="appdate">Appointment Date</label>
               <input
                 id="appdate"
                 type="date"
@@ -118,7 +118,7 @@ function UpdateAppointment() {
             </div>
 
             <div>
-              <label for="appdur">Appointment Duration</label>
+              <label htmlFor="appdur">Appointment Duration</label>
               <input
                 id="appdur"
                 type="number"
@@ -129,7 +129,7 @@ function UpdateAppointment() {
             </div>
 
             <div>
-              <label for="apptype">Appointment Type</label>
+              <label htmlFor="apptype">Appointment Type</label>
               <select
                 id="apptype"
                 type="text"
@@ -146,7 +146,7 @@ function UpdateAppointment() {
           </div>
 
           <div className="grid-container full">
-            <label for="appreason">Appointment Reason</label>
+            <label htmlFor="appreason">Appointment Reason</label>
             <textarea
               id="appreason"
               className="u-full-width"

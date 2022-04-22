@@ -1,6 +1,4 @@
-import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-
+import { useState } from "react";
 import styled from "styled-components";
 
 const BASE_URL = "http://localhost:9292";
@@ -14,8 +12,7 @@ const FormDiv = styled.div`
   align-items: center;
 `;
 
-function UpdatePatient() {
-  const { id } = useParams();
+function CreatePatient() {
   const [updatedPatient, setUpdatedPatient] = useState([]);
   const [patient_firstname, setPatientFirstName] = useState("");
   const [patient_lastname, setPatientLastName] = useState("");
@@ -27,15 +24,14 @@ function UpdatePatient() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch(BASE_URL + `/patients/${id}`, {
-      method: "PATCH",
+    fetch(BASE_URL + "/patients", {
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        id: id,
         patient_firstname: patient_firstname,
-        // patient_lastname: patient_lastname,
+        patient_lastname: patient_lastname,
         patient_phone: patient_phone,
         patient_email: patient_email,
         patient_address: patient_address,
@@ -44,13 +40,9 @@ function UpdatePatient() {
       }),
     })
       .then((r) => r.json())
-      // .then(setUpdatedDactor);
-      .then((updatePatient) => {
-        // console.log(updatedPatient);
-        setUpdatedPatient(updatePatient);
-      });
+      .then(setUpdatedPatient);
 
-    console.log("Updated patient");
+    console.log("Created a patient");
   }
 
   function handlePatientFirstNameChange(e) {
@@ -68,6 +60,7 @@ function UpdatePatient() {
   function handlePatientEmailChange(e) {
     setPatientEmail(e.target.value);
   }
+
   function handlePatientAddressChange(e) {
     setPatientAddress(e.target.value);
   }
@@ -80,11 +73,10 @@ function UpdatePatient() {
 
   return (
     <div>
-      <h3 className="pad-left">Update A Patient</h3>
-
+      <h3 className="pad-left">Create A Patient</h3>
       <FormDiv>
         <form onSubmit={handleSubmit}>
-          <div className="grid-container full">
+          <div className="grid-container halves">
             <div>
               <label htmlFor="appdoc">First Name</label>
               <input
@@ -93,21 +85,19 @@ function UpdatePatient() {
                 onChange={handlePatientFirstNameChange}
                 value={patient_firstname}
                 placeholder="First Name"
-                required
               />
             </div>
 
-            {/* <div>
-            <label htmlFor="appdoc">Last Name</label>
-            <input
-              id="appdoc"
-              type="text"
-              onChange={handlePatientLastNameChange}
-              value={patient_lastname}
-              placeholder="Last Name"
-              required
-            />
-          </div> */}
+            <div>
+              <label htmlFor="appdoc">Last Name</label>
+              <input
+                id="appdoc"
+                type="text"
+                onChange={handlePatientLastNameChange}
+                value={patient_lastname}
+                placeholder="Last Name"
+              />
+            </div>
           </div>
 
           <div className="grid-container halves">
@@ -119,7 +109,6 @@ function UpdatePatient() {
                 onChange={handlePatientPhoneChange}
                 value={patient_phone}
                 placeholder="xxx-xxx-xxxx"
-                required
               />
             </div>
 
@@ -131,7 +120,6 @@ function UpdatePatient() {
                 onChange={handlePatientEmailChange}
                 value={patient_email}
                 placeholder="Email"
-                required
               />
             </div>
           </div>
@@ -185,4 +173,4 @@ function UpdatePatient() {
   );
 }
 
-export default UpdatePatient;
+export default CreatePatient;
