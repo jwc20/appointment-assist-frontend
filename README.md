@@ -1,6 +1,5 @@
 # Doctor's appointment
 
-# DEVELOPMENT BRANCH
 
 ## As a user(the doctors' assistant) I should be able to:
 
@@ -16,33 +15,6 @@
     - Click Submit button to save.
     - See the updated appointment list on the main page.
 
-## Pages:
-
-- App.js
-  - Home
-  - Displays a list of appointments
-- AppointmentDetails.js
-  - Displays information about a single appointment
-- Doctors.js
-  - Displays a list of doctors
-- Patients.js
-  - Displays a list of patients
-- CreateAppointment.js
-  - Create appointment here with forms
-
-## Components:
-
-- Navbar
-- Logo
-- Description
-- AppointmentList
-  - DetailsButton
-  - DeleteAppointmentButton
-  - CreateAppointmentButton
-  - AppointmentNav
-- DoctorList
-- PatientList
-- BackButton
 
 ## Directory:
 
@@ -85,16 +57,20 @@
     ├── pages
     │   ├── AppointmentDetails.js
     │   ├── CreateAppointment.js
+    │   ├── CreateDoctor.js
+    │   ├── CreatePatient.js
     │   ├── Doctors.js
     │   ├── Home.js
-    │   └── Patients.js
+    │   ├── Patients.js
+    │   ├── UpdateAppointment.js
+    │   ├── UpdateDoctor.js
+    │   └── UpdatePatient.js
     └── styles
         ├── barebones.css
         ├── normalize.css
         └── skeleton-legacy.css
 
-6 directories, 38 files
-
+6 directories, 43 files
 ```
 
 ## Wireframe
@@ -134,4 +110,3 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 ### `npm run eject`
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
