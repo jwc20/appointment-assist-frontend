@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
+import { useHistory } from "react-router-dom";
 
 const BASE_URL = "http://localhost:9292";
 
@@ -13,6 +14,7 @@ const FormDiv = styled.div`
 `;
 
 function CreateDoctor() {
+  const history = useHistory();
   const [updatedDoctor, setUpdatedDactor] = useState([]);
   const [doctor_firstname, setDoctorFirstName] = useState("");
   const [doctor_lastname, setDoctorLastName] = useState("");
@@ -39,6 +41,7 @@ function CreateDoctor() {
     //   console.log(updatedDoctor);
     // });
     console.log("Created a doctor");
+    history.push("/doctors");
   }
 
   function handleDoctorFirstNameChange(e) {

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
+import { useHistory } from "react-router-dom";
 
 const BASE_URL = "http://localhost:9292";
 
@@ -14,6 +15,8 @@ const FormDiv = styled.div`
 `;
 
 function UpdateAppointment() {
+  const history = useHistory();
+
   const { id } = useParams();
   const [updatedAppointment, setUpdatedAppointment] = useState([]);
 
@@ -44,6 +47,8 @@ function UpdateAppointment() {
       .then((r) => r.json())
       .then(setUpdatedAppointment);
     console.log("Updated Appointment");
+    history.push("/");
+
   }
 
   function handleAppointmentTypeChange(e) {

@@ -1,5 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
+
 
 import styled from "styled-components";
 
@@ -15,6 +17,7 @@ const FormDiv = styled.div`
 `;
 
 function UpdatePatient() {
+  const history = useHistory();
   const { id } = useParams();
   const [updatedPatient, setUpdatedPatient] = useState([]);
   const [patient_firstname, setPatientFirstName] = useState("");
@@ -51,6 +54,7 @@ function UpdatePatient() {
       });
 
     console.log("Updated patient");
+    history.push("/patients")
   }
 
   function handlePatientFirstNameChange(e) {

@@ -1,5 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
+import { useHistory } from "react-router-dom";
+
 
 const BASE_URL = "http://localhost:9292";
 
@@ -13,6 +15,8 @@ const FormDiv = styled.div`
 `;
 
 function CreatePatient() {
+  const history = useHistory();
+
   const [updatedPatient, setUpdatedPatient] = useState([]);
   const [patient_firstname, setPatientFirstName] = useState("");
   const [patient_lastname, setPatientLastName] = useState("");
@@ -43,6 +47,8 @@ function CreatePatient() {
       .then(setUpdatedPatient);
 
     console.log("Created a patient");
+    history.push("/patients");
+
   }
 
   function handlePatientFirstNameChange(e) {
