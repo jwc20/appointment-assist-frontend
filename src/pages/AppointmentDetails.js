@@ -36,6 +36,7 @@ function AppointmentDetails({ onUpdateAppointment }) {
   const [doctors, setDoctors] = useState([]);
   const [patient, setPatient] = useState("");
   const [patients, setPatients] = useState([]);
+  const [toUpdateDoctor, setToUpdateDoctor] = useState("");
 
   useEffect(() => {
     fetch(BASE_URL + "/doctors")
@@ -74,9 +75,19 @@ function AppointmentDetails({ onUpdateAppointment }) {
   });
   if (!appointment) return <h2>Loading appointment data...</h2>;
 
-
   function handleUpdateAppointment(e) {
-    history.push(`/appointment/update/${appointment.id}`)
+    history.push(`/appointment/update/${appointment.id}`);
+  }
+
+  function handleUpdateDoctor(e) {
+    fetch(BASE_URL + `/doctors/search/${appointmentDoctor.doctor_lastname}`)
+      .then((r) => r.json())
+      .then((toUpdateDoctor) => {
+        // console.log(toUpdateDoctor);
+        setToUpdateDoctor(toUpdateDoctor)
+        history.push(`/doctor/update/${toUpdateDoctor[0].id}`);
+      });
+    // history.push(`/doctor/update/${doctor.id}`)
   }
 
   return (
@@ -193,25 +204,23 @@ function AppointmentDetails({ onUpdateAppointment }) {
         </tbody>
       </AppTable>
 
-
       <div className="grid-container thirds">
         <div>
-          <button type="button" onClick={handleUpdateAppointment}>Appointment</button>
+          <button type="button" onClick={handleUpdateAppointment}>
+            Appointment
+          </button>
         </div>
 
         <div>
-          <button type="button">Doctor</button>
+          <button type="button" onClick={handleUpdateDoctor}>
+            Doctor
+          </button>
         </div>
 
         <div>
           <button type="button">Patient</button>
         </div>
-
-
       </div>
-
-
-
     </div>
   );
 }
