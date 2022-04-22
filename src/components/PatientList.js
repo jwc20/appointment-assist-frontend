@@ -1,17 +1,12 @@
-
-
-
 import PatientRow from "./PatientRow";
 
 function PatientList({ patients }) {
-
   const patientRow = patients.map((patient) => (
     <PatientRow key={patient.id} patient={patient} />
-  ))
+  ));
 
   return (
-
-    <div>
+    <div className="list-container">
       <table className="u-full-width">
         <thead>
           <tr>
@@ -26,22 +21,8 @@ function PatientList({ patients }) {
         </thead>
         <tbody>{patientRow}</tbody>
       </table>
-
-
     </div>
-
-  )
-
-
-
+  );
 }
 
-
-
-
-
-
 export default PatientList;
-
-
-

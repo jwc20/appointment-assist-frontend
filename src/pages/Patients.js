@@ -24,13 +24,17 @@ function Patients() {
       <h3>Current Patients</h3>
 
       <PatientList patients={patients} />
-      <button
-        type="button"
-        className="button-primary"
-        onClick={handleCreatePatientButton}
-      >
-        Create a Patient
-      </button>
+      <div className="container">
+        <div className="center">
+          <button
+            type="button"
+            className="button-primary"
+            onClick={handleCreatePatientButton}
+          >
+            Create a Patient
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
